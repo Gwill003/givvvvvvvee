@@ -465,27 +465,35 @@ function showCompletionPage() {
 }
 
 /**
-
- function loadVSLPlayer() {
-
+ * Carrega o player VSL apenas quando necessário
+ */
+function loadVSLPlayer() {
+    if (window.vslPlayerLoaded) {
+        console.log('Player VSL já foi carregado anteriormente');
+        return;
+    }
     const playerContainer = document.getElementById('vslPlayerContainer');
+    if (!playerContainer) {
+        console.error('Container do player não encontrado!');
+        return;
+    }
+    playerContainer.innerHTML = '';
 
-    playerContainer.innerHTML = `
-    <div style="text-align:center;padding:20px;">
-        <h3>Share to 5 WhatsApp Groups to Receive Payment</h3>
+    // ── PLAYER ATUALIZADO ──
+    playerContainer.innerHTML = '<vturb-smartplayer id="vid-69d3483cd02c3c8fc0d3d170" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>';
 
-        <div id="shareCount" style="font-size:22px;margin:15px 0;">
-        0 / 5 Shares
-        </div>
-
-        <button id="whatsappShareBtn"
-        style="background:#25D366;color:white;border:none;padding:15px 20px;border-radius:8px;width:100%;">
-        Share on WhatsApp
-        </button>
-    </div>
-    `;
-
-    startWhatsappShare();
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = "https://scripts.converteai.net/221c9f43-b961-4a72-a699-97ce3551a9df/players/69d3483cd02c3c8fc0d3d170/v4/player.js";
+    s.async = true;
+    s.onload = function () {
+        window.vslPlayerLoaded = true;
+        console.log('Script do player VSL carregado com sucesso');
+    };
+    s.onerror = function () {
+        console.error('Erro ao carregar o script do player VSL');
+    };
+    document.head.appendChild(s);
 }
 
 const allPages = [
@@ -658,34 +666,5 @@ function createConfetti() {
             fill: 'forwards',
             easing: 'cubic-bezier(0.21, 0.98, 0.6, 0.99)'
         });
-    }
-}
-
-
-
-function startWhatsappShare(){
-
-    let shares = 0;
-    const maxShares = 5;
-
-    const btn = document.getElementById("whatsappShareBtn");
-    const counter = document.getElementById("shareCount");
-
-    btn.onclick = function(){
-
-        window.open(
-        "https://wa.me/?text=I just received money from Google Rewards!",
-        "_blank"
-        );
-
-        shares++;
-
-        counter.innerText = shares + " / " + maxShares + " Shares";
-
-        if(shares >= maxShares){
-            btn.innerText = "Processing...";
-            btn.disabled = true;
-        }
-
     }
 }
