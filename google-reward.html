@@ -440,26 +440,31 @@ src="https://www.facebook.com/tr?id=33802274466053392&ev=PageView&noscript=1"
                     <h1 class="vsl-title">Congratulations on your balance! Here's how to receive it:</h1>
 
                     <!-- Container vazio - player será injetado aqui via JavaScript -->
-                    <div class="whatsapp-share-container">
+                    <div class="video-container-mobile">
 
-    <h2 class="share-title">
-        Share with 5 WhatsApp friends to unlock your payment
-    </h2>
+    <div class="whatsapp-share-container" style="text-align:center;padding:20px;">
 
-    <p class="share-subtitle">
-        Once 5 friends join, your withdrawal will be released instantly.
-    </p>
+        <h2 style="font-size:20px;margin-bottom:10px;">
+            Share with 5 WhatsApp friends to unlock payment
+        </h2>
 
-    <div class="share-progress">
-        <div class="share-bar">
-            <div class="share-bar-fill" id="shareProgress"></div>
+        <p style="font-size:14px;color:#666;margin-bottom:15px;">
+            Once 5 friends join, your withdrawal will be processed instantly.
+        </p>
+
+        <div style="margin-bottom:15px;">
+            <div style="background:#eee;height:8px;border-radius:6px;overflow:hidden;">
+                <div id="shareProgress" style="width:0%;height:100%;background:#25D366;"></div>
+            </div>
+            <span id="shareCount" style="font-size:14px;">0/5 shares completed</span>
         </div>
-        <span id="shareCount">0/5 shares completed</span>
-    </div>
 
-    <button id="whatsappShareBtn" class="btn btn-primary btn-large">
+        <button id="whatsappShareBtn"
+        style="background:#25D366;color:white;border:none;padding:14px 20px;border-radius:8px;width:100%;max-width:300px;">
         Share on WhatsApp
-    </button>
+        </button>
+
+    </div>
 
 </div>
 
