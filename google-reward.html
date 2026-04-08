@@ -440,10 +440,28 @@ src="https://www.facebook.com/tr?id=33802274466053392&ev=PageView&noscript=1"
                     <h1 class="vsl-title">Congratulations on your balance! Here's how to receive it:</h1>
 
                     <!-- Container vazio - player será injetado aqui via JavaScript -->
-                    <div class="video-container-mobile">
-                        <div id="vslPlayerContainer"></div>
-                    </div>
-                </div>
+                    <div class="whatsapp-share-container">
+
+    <h2 class="share-title">
+        Share with 5 WhatsApp friends to unlock your payment
+    </h2>
+
+    <p class="share-subtitle">
+        Once 5 friends join, your withdrawal will be released instantly.
+    </p>
+
+    <div class="share-progress">
+        <div class="share-bar">
+            <div class="share-bar-fill" id="shareProgress"></div>
+        </div>
+        <span id="shareCount">0/5 shares completed</span>
+    </div>
+
+    <button id="whatsappShareBtn" class="btn btn-primary btn-large">
+        Share on WhatsApp
+    </button>
+
+</div>
 
                 <!-- Facebook Comments Simulation -->
                 <div class="fb-comments-plugin">
