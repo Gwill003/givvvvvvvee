@@ -82,4 +82,103 @@ window.VIDEOASK_EMBED_CONFIG = {
 </script>
 <script src="https://www.videoask.com/embed/embed.js"></script>
 <!-- Important!!! In order to allow your videoask to open up on the same page when interacting with the widget, your website must use the secure https:// protocol (i.e have an SSL certificate). Otherwise, when clicking the widget, a new tab will be automatically opened in the browser.
---></body></html>
+->
+
+<!-- CUSTOM AMOUNT BUTTONS WITH REDIRECT -->
+<style>
+.custom-amount-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 20px 0;
+}
+.custom-amount-btn {
+  background: #3872DC;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+.custom-amount-btn:hover {
+  background: #2a5db8;
+  transform: scale(1.05);
+}
+.custom-amount-btn.green {
+  background: #2e8b57;
+}
+.custom-amount-btn.green:hover {
+  background: #246b43;
+}
+.custom-amount-btn.red {
+  background: #dc3545;
+}
+.custom-amount-btn.red:hover {
+  background: #bb2d3b;
+}
+</style>
+
+<div class="custom-amount-container" style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 30px 0;">
+  <button class="custom-amount-btn" data-amount="800" data-url="https://example.com/page-800-euros">€800</button>
+  <button class="custom-amount-btn green" data-amount="400" data-url="https://example.com/page-400-euros">€400</button>
+  <button class="custom-amount-btn" data-amount="200" data-url="https://example.com/page-200-euros">€200</button>
+  <button class="custom-amount-btn green" data-amount="100" data-url="https://example.com/page-100-euros">€100</button>
+  <button class="custom-amount-btn red" data-amount="50" data-url="https://example.com/page-50-euros">€50</button>
+</div>
+
+<script>
+(function() {
+  'use strict';
+  
+  // Wait for page to fully load
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // Move the custom buttons to below the hero section
+    var heroSection = document.querySelector('.hero, .align-center.hero');
+    var logoLooping = document.querySelector('.logo-looping');
+    var insertPoint = logoLooping || heroSection;
+    
+    var buttonContainer = document.querySelector('.custom-amount-container');
+    
+    if (insertPoint && buttonContainer) {
+      insertPoint.parentNode.insertBefore(buttonContainer, insertPoint.nextSibling);
+    }
+    
+    // Add click handlers to all custom buttons
+    var buttons = document.querySelectorAll('[data-amount][data-url]');
+    
+    buttons.forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        var url = this.getAttribute('data-url');
+        var amount = this.getAttribute('data-amount');
+        
+        console.log('Redirecting to: ' + url + ' for amount: €' + amount);
+        
+        // Optional: Small delay to show feedback
+        this.style.opacity = '0.7';
+        this.textContent = 'Redirecting...';
+        
+        setTimeout(function() {
+          window.location.href = url;
+        }, 100);
+      });
+    });
+    
+    console.log('Custom amount buttons initialized with redirects');
+  });
+  
+})();
+</script>
+
+</body></html>
