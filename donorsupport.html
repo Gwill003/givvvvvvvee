@@ -1,12 +1,12 @@
-Here is the HTML code for a donation page designed to match the style and content of your screenshots. It's a single, self-contained webpage.
+Thank you for the clarification. Here is a cleaner, focused version of the secure donation page. Each amount button is now linked to a distinct URL, and the overall design is simplified to match your screenshot more precisely.
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Help Them Live · Save Babies in Gaza</title>
-  <!-- Font Awesome 6 (free) -->
+  <title>Secure donation · Gaza newborns</title>
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -16,262 +16,121 @@ Here is the HTML code for a donation page designed to match the style and conten
     }
 
     body {
-      background: #f2ede4;  /* warm, soft off-white */
-      font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
-      color: #1e1e1e;
-      line-height: 1.5;
-      padding: 16px 12px 32px;
+      background: #f5f2ef;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .page {
-      max-width: 500px;
-      margin: 0 auto;
-      width: 100%;
-      background: #fffcf9;
-      border-radius: 32px 32px 28px 28px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.03);
-      overflow: hidden;
-      padding: 24px 20px 30px;
-      border: 1px solid #f0e3d5;
-    }
-
-    /* header area */
-    .emergency-badge {
-      display: inline-block;
-      background: #b2221c;
-      color: white;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      padding: 6px 14px;
-      border-radius: 40px;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      box-shadow: 0 2px 6px rgba(178, 34, 28, 0.2);
-    }
-
-    h1 {
-      font-size: 2.3rem;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 8px;
-      color: #0b1e2b;
-    }
-
-    .subheadline {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #1e4a5f;
-      margin-bottom: 24px;
-      border-left: 5px solid #b2221c;
-      padding-left: 16px;
-    }
-
-    .story-text {
-      background: #fef7f0;
       padding: 20px 16px;
-      border-radius: 24px;
-      margin-bottom: 28px;
-      border: 1px solid #f3dac8;
+      color: #1e2b36;
     }
 
-    .story-text p {
-      margin-bottom: 14px;
-      font-size: 1rem;
-      color: #2c3e4e;
+    .card {
+      max-width: 480px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 36px;
+      box-shadow: 0 16px 35px -8px rgba(0, 0, 0, 0.08), 0 8px 12px -4px rgba(0, 0, 0, 0.03);
+      padding: 28px 24px 32px;
+      border: 1px solid #f0e3d9;
+      transition: all 0.2s;
     }
 
-    .stat-highlight {
-      font-weight: 700;
-      color: #b2221c;
-      background: #ffeeea;
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 30px;
-      margin: 0 2px;
-    }
-
-    .bold-number {
-      font-weight: 800;
-      font-size: 1.3rem;
-      color: #0b1e2b;
-    }
-
-    .partner-line {
-      font-weight: 600;
-      margin-top: 12px;
-      color: #1e4a5f;
+    /* header / back */
+    .top-bar {
       display: flex;
       align-items: center;
-      gap: 6px;
-    }
-
-    .partner-line i {
-      color: #b68b5c;
-    }
-
-    /* tier cards */
-    .help-options {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin: 28px 0 30px;
-    }
-
-    .tier-card {
-      background: white;
-      border-radius: 24px;
-      padding: 18px 20px;
-      border: 1.5px solid #e7d9cd;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
-      transition: all 0.15s;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .tier-card:hover {
-      border-color: #b68b5c;
-      background: #fefcf9;
-    }
-
-    .tier-amount {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: #1e4a5f;
-      line-height: 1.2;
-    }
-
-    .tier-desc {
-      flex: 1;
-      margin-left: 16px;
+      margin-bottom: 20px;
+      color: #5b6f7e;
       font-weight: 500;
-      color: #1f3a47;
-    }
-
-    .tier-desc small {
-      display: block;
-      font-weight: 400;
-      font-size: 0.85rem;
-      color: #6f5e51;
-      margin-top: 4px;
-    }
-
-    .tier-badge {
-      background: #b2221c10;
-      border-radius: 40px;
-      padding: 6px 12px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #b2221c;
-      border: 1px dashed #b2221c40;
-    }
-
-    .donate-button {
-      background: #b2221c;
-      color: white;
-      border: none;
-      width: 100%;
-      padding: 20px 16px;
-      font-size: 1.4rem;
-      font-weight: 700;
-      border-radius: 60px;
-      margin: 8px 0 24px;
-      cursor: pointer;
-      box-shadow: 0 8px 18px rgba(178, 34, 28, 0.25);
-      transition: 0.15s;
-      text-align: center;
-      letter-spacing: 0.5px;
-      border: 1px solid #9b1d17;
-    }
-
-    .donate-button i {
-      margin-right: 8px;
-    }
-
-    .donate-button:hover {
-      background: #911c16;
-      transform: scale(1.01);
-      box-shadow: 0 6px 14px rgba(178, 34, 28, 0.3);
-    }
-
-    .urgent-footnote {
-      text-align: center;
-      font-style: italic;
-      color: #b55a4c;
-      font-weight: 500;
-      margin-top: -8px;
-      margin-bottom: 28px;
       font-size: 1rem;
-    }
-
-    /* donation form – exactly like the second screenshot */
-    .secure-section {
-      background: #fcf7f3;
-      border-radius: 28px;
-      padding: 22px 18px 24px;
-      margin-top: 8px;
-      border: 1px solid #eeded1;
     }
 
     .back-link {
       display: flex;
       align-items: center;
       gap: 8px;
-      color: #5a6e7c;
-      font-weight: 500;
-      margin-bottom: 20px;
-      font-size: 0.95rem;
+      cursor: pointer;
+      transition: color 0.1s;
     }
 
     .back-link i {
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
 
-    .donation-tabs {
-      display: flex;
-      gap: 12px;
+    .back-link:hover {
+      color: #1e3f51;
+    }
+
+    .url-hint {
+      margin-left: auto;
+      font-size: 0.8rem;
+      color: #a29286;
+      letter-spacing: 0.2px;
+      background: #f7f2ee;
+      padding: 6px 12px;
+      border-radius: 40px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       margin-bottom: 24px;
-      border-bottom: 2px solid #dccfc4;
+      color: #0f293b;
+    }
+
+    /* tabs */
+    .tab-row {
+      display: flex;
+      gap: 24px;
+      border-bottom: 2px solid #e7dbd1;
+      margin-bottom: 28px;
     }
 
     .tab {
-      font-weight: 700;
-      font-size: 1.1rem;
-      padding-bottom: 10px;
-      color: #7f8e99;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding-bottom: 12px;
+      color: #7e909e;
       border-bottom: 3px solid transparent;
       cursor: default;
     }
 
     .tab.active {
-      color: #1e3f51;
+      color: #1e4a5f;
       border-bottom: 3px solid #b2221c;
     }
 
+    /* amount grid */
     .amount-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 24px;
+      gap: 12px;
+      margin-bottom: 20px;
     }
 
     .amount-btn {
       background: white;
-      border: 1.5px solid #dccfc4;
+      border: 1.8px solid #e3d6cc;
       border-radius: 60px;
-      padding: 14px 0;
+      padding: 16px 4px;
       font-weight: 700;
-      font-size: 1.2rem;
-      color: #1e3f51;
+      font-size: 1.3rem;
+      color: #1a3e4f;
       text-align: center;
-      transition: all 0.1s;
-      cursor: default;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      cursor: pointer;
+      transition: all 0.15s;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.02);
+      text-decoration: none;
+      display: block;
+    }
+
+    .amount-btn:hover {
+      background: #f6f0eb;
+      border-color: #b68b6b;
+      transform: scale(0.98);
     }
 
     .amount-btn.highlight {
@@ -280,324 +139,308 @@ Here is the HTML code for a donation page designed to match the style and conten
       color: white;
     }
 
-    .custom-amount-row {
+    /* custom amount row */
+    .custom-row {
       display: flex;
       align-items: center;
-      background: white;
+      background: #ffffff;
+      border: 1.8px solid #e3d6cc;
       border-radius: 60px;
-      border: 1.5px solid #dccfc4;
-      padding: 6px 16px 6px 22px;
-      margin-bottom: 24px;
+      padding: 6px 18px 6px 22px;
+      margin: 8px 0 24px;
     }
 
-    .currency-symbol {
+    .euro-sign {
       font-weight: 700;
-      font-size: 1.4rem;
-      color: #2c3e4e;
+      font-size: 1.8rem;
+      color: #1a3e4f;
+      margin-right: 6px;
     }
 
-    .custom-amount-row input {
+    .custom-row input {
       border: none;
-      padding: 16px 8px;
-      font-size: 1.4rem;
+      font-size: 1.8rem;
       font-weight: 600;
       width: 100%;
       outline: none;
       background: transparent;
-      color: #1e1e1e;
+      padding: 12px 0;
+      color: #1a3e4f;
+      font-family: inherit;
     }
 
-    .currency-code {
+    .currency-label {
       font-weight: 600;
-      color: #6f5e51;
-      font-size: 1.2rem;
-      padding-right: 6px;
+      font-size: 1.3rem;
+      color: #7b685a;
+      margin-left: 6px;
     }
 
+    /* dedicate row */
     .dedicate-row {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin: 16px 0 20px;
-      color: #1f3a47;
+      gap: 14px;
+      margin: 18px 0 16px;
+      font-size: 1.15rem;
       font-weight: 500;
+      color: #1f3a47;
+      cursor: pointer;
     }
 
-    .dedicate-row input[type="checkbox"] {
-      width: 22px;
-      height: 22px;
+    .dedicate-row input {
+      width: 24px;
+      height: 24px;
       accent-color: #b2221c;
-      border-radius: 6px;
+      border-radius: 8px;
+      cursor: pointer;
     }
 
-    .comment-field {
+    /* comment field */
+    .comment-input {
       width: 100%;
-      padding: 16px 18px;
-      border-radius: 24px;
-      border: 1.5px solid #dccfc4;
+      padding: 18px 18px;
+      border-radius: 28px;
+      border: 1.8px solid #e3d6cc;
       background: white;
       font-size: 1rem;
-      margin-bottom: 24px;
+      margin: 8px 0 24px;
       resize: vertical;
       font-family: inherit;
     }
 
-    .comment-field::placeholder {
-      color: #9b8b7e;
+    .comment-input::placeholder {
+      color: #9d8d80;
+      font-weight: 400;
     }
 
-    .donate-action-btn {
-      background: #1e4a5f;
+    /* main donate button */
+    .donate-main {
+      background: #b2221c;
       color: white;
       border: none;
       width: 100%;
-      padding: 18px 16px;
-      font-size: 1.4rem;
+      padding: 20px 16px;
+      font-size: 1.5rem;
       font-weight: 700;
       border-radius: 60px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       cursor: pointer;
-      box-shadow: 0 6px 14px rgba(30, 74, 95, 0.2);
-      border: 1px solid #163d4f;
+      box-shadow: 0 10px 20px rgba(178, 34, 28, 0.2);
       transition: 0.12s;
+      border: 1px solid #951f19;
+      text-align: center;
+      display: block;
+      text-decoration: none;
     }
 
-    .donate-action-btn i {
+    .donate-main i {
       margin-right: 10px;
     }
 
-    .donate-action-btn:hover {
-      background: #143b4b;
+    .donate-main:hover {
+      background: #9b1d17;
+      box-shadow: 0 8px 14px rgba(178, 34, 28, 0.25);
     }
 
-    .footer-links {
+    /* footer links */
+    .info-links {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      font-size: 0.85rem;
-      color: #6f7e89;
-      margin-top: 10px;
+      row-gap: 14px;
+      font-size: 0.9rem;
+      color: #4f6779;
+      margin-top: 8px;
     }
 
-    .footer-links span {
-      display: flex;
+    .info-links span {
+      display: inline-flex;
       align-items: center;
-      gap: 5px;
-      cursor: default;
+      gap: 8px;
+      cursor: pointer;
       padding: 4px 0;
     }
 
-    .footer-links i {
+    .info-links i {
       color: #1e4a5f;
-      width: 18px;
+      width: 20px;
     }
 
-    .divider {
-      margin: 16px 0 8px;
+    .divider-light {
+      margin: 20px 0 10px;
       height: 1px;
-      background: linear-gradient(to right, transparent, #ddcec0, transparent);
+      background: #e7dbd1;
     }
 
-    /* micro */
-    .small-note {
-      font-size: 0.8rem;
-      color: #7b6e62;
+    .secure-badge {
+      font-size: 0.75rem;
+      color: #8a786a;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
   </style>
 </head>
 <body>
-<div class="page">
+<div class="card">
   
-  <!-- TOP: GAZA EMERGENCY + HEADLINE -->
-  <div class="emergency-badge">
-    <i class="fas fa-exclamation-triangle" style="margin-right: 6px;"></i>GAZA EMERGENCY
-  </div>
-  <h1>HELP THEM LIVE</h1>
-  <div class="subheadline">Save Newborns in Gaza</div>
-  
-  <!-- STORY CARD (exactly like first screenshot) -->
-  <div class="story-text">
-    <p style="font-weight: 700; font-size: 1.2rem; color:#0b1e2b;">Gaza’s newborns are fighting to survive.<br>Will you be their lifeline?</p>
-    <p>In Gaza, babies are being born into devastation. No warm homes. No steady milk. No safe arms to protect them. Only rubble, hunger, and fear.</p>
-    <p>Since October 7th, over <span class="stat-highlight"><i class="fas fa-child"></i> 16,000 children</span> have been killed. Thousands more newborns are struggling to survive — fragile, starving, and forgotten.</p>
-    <p class="partner-line">
-      <i class="fas fa-hand-holding-heart"></i> <strong>MATW</strong> & <strong>Najam</strong> are joining forces to save them.
-    </p>
-    <p>Together, we are delivering urgent formula, diapers, hygiene kits, and warm clothing directly to the newborns who need it most. But <strong>we cannot do it without you.</strong></p>
-  </div>
-  
-  <!-- TIER OPTIONS (from first screen) -->
-  <div style="font-weight: 700; font-size: 1.3rem; margin-bottom: 8px; color: #1e3f51;">Here’s how you can help today:</div>
-  <div class="help-options">
-    <div class="tier-card">
-      <span class="tier-amount">$100</span>
-      <span class="tier-desc">Monthly Kit <small>full essentials: formula, hygiene, warm clothes</small></span>
-      <span class="tier-badge">1 month</span>
-    </div>
-    <div class="tier-card">
-      <span class="tier-amount">$25</span>
-      <span class="tier-desc">Basic Kit <small>week's supply: formula, diapers, clothing</small></span>
-      <span class="tier-badge">1 week</span>
-    </div>
-    <div class="tier-card">
-      <span class="tier-amount">$300</span>
-      <span class="tier-desc">Complete 3‑Month Kit <small>everything for critical first months</small></span>
-      <span class="tier-badge">3 months</span>
-    </div>
-  </div>
-  
-  <!-- BIG DONATE BUTTON (first screen style) -->
-  <button class="donate-button" onclick="alert('🙏 Thank you for choosing to save newborns in Gaza. Your compassion is their lifeline.')">
-    <i class="fas fa-heart"></i> Donate
-  </button>
-  <div class="urgent-footnote">
-    <i class="fas fa-hourglass-end"></i> of these babies won't live to see another day.
-  </div>
-  
-  <!-- SECURE DONATION SECTION (second screenshot style) -->
-  <div class="secure-section">
-    <div class="back-link">
+  <!-- top line: reg.kanex.online/donorsupport.h + back -->
+  <div class="top-bar">
+    <div class="back-link" onclick="window.history.length > 1 ? history.back() : alert('← Back to campaign')">
       <i class="fas fa-arrow-left"></i> Back
     </div>
-    <div style="font-weight: 700; font-size: 1.5rem; margin-bottom: 16px; color:#1f3a47;">Secure donation</div>
-    
-    <!-- Tabs: Give once / Monthly -->
-    <div class="donation-tabs">
-      <div class="tab active">Give once</div>
-      <div class="tab">Monthly</div>
-    </div>
-    
-    <!-- amount presets: exactly €800 €400 €200, €85 €40 €20 (matches second screenshot) -->
-    <div class="amount-grid">
-      <div class="amount-btn">€800</div>
-      <div class="amount-btn">€400</div>
-      <div class="amount-btn">€200</div>
-      <div class="amount-btn highlight">€85</div>
-      <div class="amount-btn">€40</div>
-      <div class="amount-btn">€20</div>
-    </div>
-    
-    <!-- custom amount row with €85 pre-filled as shown -->
-    <div class="custom-amount-row">
-      <span class="currency-symbol">€</span>
-      <input type="number" value="85" min="1" step="1" aria-label="Donation amount in Euros">
-      <span class="currency-code">EUR</span>
-    </div>
-    
-    <!-- Dedicate & comment -->
-    <div class="dedicate-row">
-      <input type="checkbox" id="dedicateCheck" checked> 
-      <label for="dedicateCheck" style="cursor: default;">☐ Dedicate this donation</label>
-      <!-- the screenshot shows an empty box, but I'll make it checked/unchecked style. Use an empty square? I'll match visual -->
-    </div>
-    <!-- actually screenshot has "☐ Dedicate this donation" with an unchecked box, I'll set it unchecked -->
-    <style>.dedicate-row input { margin-right: 4px; }</style>
-    <script>
-      // small adjust: uncheck by default to match screenshot
-      document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('dedicateCheck').checked = false;
-      });
-    </script>
-    
-    <textarea class="comment-field" placeholder="Add comment (optional)" rows="2"></textarea>
-    
-    <!-- Donate button (second style) -->
-    <button class="donate-action-btn" onclick="alert('💛 Thank you for your secure donation. Every euro saves lives.')">
-      <i class="fas fa-lock"></i> Donate
-    </button>
-    
-    <!-- footer links exactly as in screenshot -->
-    <div class="footer-links">
-      <span><i class="fas fa-shield-alt"></i> Is my donation secure?</span>
-      <span><i class="fas fa-file-invoice"></i> Is this donation tax-deductible?</span>
-      <span><i class="fas fa-sync-alt"></i> Can I cancel my recurring donation?</span>
-      <span><i class="fas fa-cookie-bite"></i> Cookie policy</span>
-    </div>
-    
-    <!-- tiny url hint (reg.kanex.online/donorsupport.h) -->
-    <div style="margin-top: 16px; font-size: 0.7rem; color: #a08e7e; letter-spacing: 0.3px; border-top: 1px dashed #ddd0c4; padding-top: 12px; display: flex; align-items: center; gap: 6px;">
-      <i class="fas fa-globe"></i> reg.kanex.online/donorsupport.h 
-      <span style="margin-left: auto;"><i class="fas fa-lock" style="opacity: 0.7;"></i></span>
+    <div class="url-hint">
+      <i class="fas fa-link" style="font-size: 0.7rem;"></i> reg.kanex.online/donorsupport.h
     </div>
   </div>
-  
-  <!-- subtle repeat of urgency -->
-  <div style="margin-top: 20px; text-align: center; font-size: 0.9rem; color: #b55a4c;">
-    <i class="fas fa-hand-holding-heart"></i> 100% of your donation goes to emergency kits
+
+  <h2>Secure donation</h2>
+
+  <!-- tabs: give once / monthly -->
+  <div class="tab-row">
+    <div class="tab active">Give once</div>
+    <div class="tab">Monthly</div>
+  </div>
+
+  <!-- amount presets: each linked to different URL -->
+  <div class="amount-grid">
+    <a href="https://example.com/donate/800" class="amount-btn" target="_blank" rel="noopener">€800</a>
+    <a href="https://example.com/donate/400" class="amount-btn" target="_blank" rel="noopener">€400</a>
+    <a href="https://example.com/donate/200" class="amount-btn" target="_blank" rel="noopener">€200</a>
+    <a href="https://example.com/donate/85" class="amount-btn highlight" target="_blank" rel="noopener">€85</a>
+    <a href="https://example.com/donate/40" class="amount-btn" target="_blank" rel="noopener">€40</a>
+    <a href="https://example.com/donate/20" class="amount-btn" target="_blank" rel="noopener">€20</a>
+  </div>
+
+  <!-- custom amount row (€85 prefilled, linked to its own URL) -->
+  <div class="custom-row">
+    <span class="euro-sign">€</span>
+    <input type="number" value="85" min="1" step="1" id="customAmountInput" aria-label="Custom amount in Euros">
+    <span class="currency-label">EUR</span>
+  </div>
+
+  <!-- dedicate checkbox -->
+  <div class="dedicate-row" onclick="document.getElementById('dedicateCheck').click();">
+    <input type="checkbox" id="dedicateCheck">
+    <label for="dedicateCheck" style="cursor: pointer;">☐ Dedicate this donation</label>
+  </div>
+
+  <!-- comment field -->
+  <textarea class="comment-input" placeholder="Add comment" rows="2"></textarea>
+
+  <!-- MAIN DONATE BUTTON: directs to custom amount link -->
+  <a href="#" class="donate-main" id="mainDonateButton" target="_blank" rel="noopener">
+    <i class="fas fa-lock"></i> Donate
+  </a>
+
+  <!-- info links -->
+  <div class="info-links">
+    <span onclick="alert('🔐 All donations are processed with bank-level encryption.')"><i class="fas fa-shield-alt"></i> Is my donation secure?</span>
+    <span onclick="alert('📄 Tax receipts are provided for eligible donations.')"><i class="fas fa-file-invoice"></i> Is this donation tax-deductible?</span>
+    <span onclick="alert('🔄 You can manage or cancel recurring donations anytime.')"><i class="fas fa-sync-alt"></i> Can I cancel my recurring donation?</span>
+    <span onclick="alert('🍪 We use essential cookies only.')"><i class="fas fa-cookie-bite"></i> Cookie policy</span>
+  </div>
+
+  <div class="divider-light"></div>
+  <div class="secure-badge">
+    <i class="fas fa-lock"></i> 256-bit SSL secure · reg.kanex.online
   </div>
 </div>
 
-<!-- tiny interaction polish: make checkboxes and inputs feel static but functional -->
 <script>
   (function() {
-    // simple interactive feeling: clicking on amount presets fills the input
-    const amountBtns = document.querySelectorAll('.amount-btn');
-    const customInput = document.querySelector('.custom-amount-row input');
-    const highlightClass = 'highlight';
+    // EACH AMOUNT LINK is already distinct.
+    // The main Donate button will dynamically link based on custom input value.
+    const customInput = document.getElementById('customAmountInput');
+    const mainDonateBtn = document.getElementById('mainDonateButton');
+    const amountLinks = document.querySelectorAll('.amount-btn');
     
-    amountBtns.forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        const text = this.textContent.replace('€', '').trim();
-        const value = parseInt(text, 10);
-        if (!isNaN(value)) {
-          customInput.value = value;
-        }
-        // remove highlight from all, add to clicked
-        amountBtns.forEach(b => b.classList.remove(highlightClass));
-        this.classList.add(highlightClass);
+    // Function to update main button URL based on custom amount
+    function updateMainDonateLink() {
+      let val = customInput.value.trim();
+      if (val === '' || isNaN(val) || Number(val) <= 0) {
+        val = '85'; // fallback
+        customInput.value = 85;
+      }
+      // Build link – each amount goes to different endpoint
+      const base = 'https://example.com/donate/';
+      const amount = Math.floor(Number(val));
+      mainDonateBtn.href = base + amount;
+      
+      // remove highlight from all preset buttons if custom value doesn't match exactly
+      const matchPreset = Array.from(amountLinks).some(link => {
+        const presetVal = link.textContent.replace('€', '').trim();
+        return presetVal === String(amount);
       });
-    });
-    
-    // ensure manual input sync (optional)
-    customInput.addEventListener('input', function() {
-      const val = this.value.trim();
-      amountBtns.forEach(btn => {
-        const btnVal = btn.textContent.replace('€', '').trim();
-        if (btnVal === val) {
-          amountBtns.forEach(b => b.classList.remove(highlightClass));
-          btn.classList.add(highlightClass);
-        } else {
-          // if no exact match, remove highlight from all
-          if (![...amountBtns].some(b => b.textContent.replace('€','').trim() === val)) {
-            amountBtns.forEach(b => b.classList.remove(highlightClass));
-          }
+      
+      amountLinks.forEach(link => {
+        link.classList.remove('highlight');
+        const presetVal = link.textContent.replace('€', '').trim();
+        if (presetVal === String(amount)) {
+          link.classList.add('highlight');
         }
       });
-    });
-    
-    // Back link behaviour
-    document.querySelector('.back-link').addEventListener('click', function() {
-      alert('← You are on the secure donation page.');
-    });
-    
-    // Make the first big Donate button also fill some dummy
-    const topDonate = document.querySelector('.donate-button');
-    topDonate.addEventListener('click', function(e) {
-      // scroll to secure part
-      document.querySelector('.secure-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-    
-    // Dedicate checkbox visual: we use "☐" but I'll use text inside label to be exact like screenshot
-    const dedicateLabel = document.querySelector('.dedicate-row label');
-    const dedicateCheck = document.getElementById('dedicateCheck');
-    if (dedicateLabel) {
-      // set inner content to "☐ Dedicate this donation"
-      dedicateLabel.innerHTML = '☐ Dedicate this donation';
-      dedicateCheck.addEventListener('change', function() {
-        if (this.checked) {
-          dedicateLabel.innerHTML = '☒ Dedicate this donation';
-        } else {
-          dedicateLabel.innerHTML = '☐ Dedicate this donation';
-        }
-      });
-      // init: unchecked
-      dedicateCheck.checked = false;
-      dedicateLabel.innerHTML = '☐ Dedicate this donation';
     }
+    
+    // initial
+    updateMainDonateLink();
+    
+    // listen to input changes
+    customInput.addEventListener('input', updateMainDonateLink);
+    
+    // when clicking on a preset, we change the input and update link
+    amountLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        // we don't prevent default — but the link will open a new tab.
+        // we also want the interface to reflect the amount.
+        const amountText = this.textContent.replace('€', '').trim();
+        const amountNum = parseInt(amountText, 10);
+        if (!isNaN(amountNum)) {
+          customInput.value = amountNum;
+          updateMainDonateLink();
+        }
+        // remove highlight and add to clicked (but the link may navigate away)
+        amountLinks.forEach(l => l.classList.remove('highlight'));
+        this.classList.add('highlight');
+        
+        // optional: if you want to avoid opening the preset link (and only use main button)
+        // you could prevent default and rely on main button. but the spec: "every amount be directed to a different link"
+        // we keep the preset links functional (they open new tab). If you want the main button to be the only way, 
+        // we can change behaviour. but it's fine.
+        // However, to be safe, we let them open; but we also sync the main button.
+      });
+    });
+    
+    // Dedicate checkbox toggle text
+    const dedicateCheck = document.getElementById('dedicateCheck');
+    const dedicateLabel = document.querySelector('.dedicate-row label');
+    
+    function updateDedicateLabel() {
+      if (dedicateCheck.checked) {
+        dedicateLabel.innerHTML = '☒ Dedicate this donation';
+      } else {
+        dedicateLabel.innerHTML = '☐ Dedicate this donation';
+      }
+    }
+    
+    dedicateCheck.addEventListener('change', updateDedicateLabel);
+    // initial: unchecked
+    dedicateCheck.checked = false;
+    updateDedicateLabel();
+    
+    // also clicking on label toggles (already handled via onclick on parent)
+    // additional: make 'Monthly' tab non-interactive, just UI
+    document.querySelectorAll('.tab')[1].addEventListener('click', function() {
+      alert('✨ Monthly giving option will be available soon. Thank you for your compassion.');
+    });
+    
+    // main donate button: opens the custom amount link
+    // already set up.
   })();
 </script>
 
-<!-- add a small dummy link to simulate the reg.kanex address fully -->
+<!-- note: the links go to example.com/donate/... replace with actual campaign URLs -->
 </body>
 </html>
 ```
