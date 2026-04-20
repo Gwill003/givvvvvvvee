@@ -7,17 +7,17 @@
 
 <style>
 body {
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     margin: 0;
-    background: #f5f5f5;
-    overflow-x: hidden;
+    background: #f2f2f2;
 }
 
+/* CONTAINER */
 .container {
-    max-width: 500px;
+    max-width: 420px;
     margin: auto;
-    background: white;
-    padding: 15px;
+    background: #fff;
+    min-height: 100vh;
     position: relative;
     overflow: hidden;
 }
@@ -28,119 +28,110 @@ body {
     width: 100%;
     top: 0;
     left: 0;
-    opacity: 0;
+    background: #fff;
+    transition: transform 0.35s ease;
+}
+
+.page.hidden {
     transform: translateX(100%);
-    transition: all 0.5s ease;
 }
 
-.page.active {
-    opacity: 1;
-    transform: translateX(0);
-    position: relative;
+.header {
+    padding: 15px;
+    text-align: center;
 }
 
-.page.exit {
-    transform: translateX(-100%);
-    opacity: 0;
+.header h1 {
+    font-size: 22px;
+    margin: 10px 0;
 }
 
-/* CONTENT ANIMATION */
-.fade-up {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.6s forwards;
-}
-
-.fade-up.delay {
-    animation-delay: 0.2s;
-}
-
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* IMAGE */
+/* HERO IMAGE */
 .hero img {
     width: 100%;
-    border-radius: 12px;
 }
 
 /* TEXT */
-.text {
-    margin-top: 15px;
+.content {
+    padding: 15px;
+    font-size: 15px;
     line-height: 1.5;
 }
 
-/* BUTTON */
-.btn {
-    display: block;
+/* DONATE BAR (FIXED LIKE REAL SITE) */
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
     width: 100%;
+    max-width: 420px;
+    background: #fff;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.btn {
+    width: 100%;
+    padding: 15px;
     background: #2f6fed;
     color: white;
-    text-align: center;
-    padding: 15px;
-    border-radius: 10px;
-    margin-top: 20px;
-    font-size: 18px;
     border: none;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    border-radius: 8px;
+    font-size: 16px;
 }
 
-.btn:active {
-    transform: scale(0.96);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+/* PAGE 2 */
+.section {
+    padding: 15px;
 }
 
-/* DONATION PAGE */
 .toggle {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
 }
 
-.toggle button {
+.toggle div {
     flex: 1;
+    text-align: center;
     padding: 10px;
+    border-radius: 8px;
     border: 1px solid #ccc;
-    background: #eee;
-    border-radius: 6px;
 }
 
+.toggle .active {
+    border: 2px solid #2f6fed;
+}
+
+/* AMOUNTS GRID */
 .amounts {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
 
-.amounts button {
-    padding: 12px;
+.amount {
+    padding: 14px;
+    text-align: center;
+    border-radius: 10px;
     border: 1px solid #ccc;
-    background: white;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    background: #fff;
 }
 
-.amounts button:hover {
-    transform: scale(1.05);
-}
-
-.amounts button.active {
+.amount.active {
     border: 2px solid #2f6fed;
-    background: #eef3ff;
 }
 
 /* INPUT */
-input {
-    width: 100%;
-    padding: 12px;
+.input-box {
     margin-top: 10px;
-    border-radius: 6px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
     border: 1px solid #ccc;
+    font-size: 16px;
 }
 </style>
 </head>
@@ -150,71 +141,76 @@ input {
 <div class="container">
 
     <!-- PAGE 1 -->
-    <div id="page1" class="page active">
-        <h1 class="fade-up">Help Them Live</h1>
+    <div id="page1" class="page">
+        <div class="header">
+            <h1>Help Them Live - Save Babies</h1>
+        </div>
 
-        <div class="hero fade-up delay">
+        <div class="hero">
+            <!-- REPLACE IMAGE -->
             <img src="your-image.jpg">
         </div>
 
-        <div class="text fade-up delay">
+        <div class="content">
             <p><b>Gaza’s newborns are fighting to survive.</b></p>
-            <p>No food. No safety. No homes.</p>
-            <p><b>We need your help.</b></p>
+            <p>No homes. No milk. No safety.</p>
+            <p><b>We cannot do this without you.</b></p>
         </div>
-
-        <button class="btn fade-up delay" onclick="goToPage2()">Donate</button>
     </div>
 
-
     <!-- PAGE 2 -->
-    <div id="page2" class="page">
-        <h2 class="fade-up">Secure donation</h2>
+    <div id="page2" class="page hidden">
 
-        <div class="toggle fade-up delay">
-            <button>Give once</button>
-            <button>Monthly</button>
+        <div class="section">
+            <h2>Secure donation</h2>
+
+            <div class="toggle">
+                <div class="active">Give once</div>
+                <div>Monthly</div>
+            </div>
+
+            <div class="amounts">
+                <div class="amount">€800</div>
+                <div class="amount">€400</div>
+                <div class="amount">€200</div>
+                <div class="amount active">€85</div>
+                <div class="amount">€40</div>
+                <div class="amount">€20</div>
+            </div>
+
+            <div class="input-box">
+                <input type="text" value="€85">
+            </div>
         </div>
 
-        <div class="amounts fade-up delay">
-            <button>€800</button>
-            <button>€400</button>
-            <button>€200</button>
-            <button class="active">€85</button>
-            <button>€40</button>
-            <button>€20</button>
-        </div>
-
-        <input id="amountInput" type="text" value="€85" class="fade-up delay">
-
-        <a href="https://your-link-here.com" class="btn fade-up delay">Donate</a>
     </div>
 
 </div>
 
+<!-- FIXED BUTTON -->
+<div class="bottom-bar">
+    <button id="mainBtn" class="btn">Donate</button>
+</div>
+
 <script>
-function goToPage2() {
-    const p1 = document.getElementById("page1");
-    const p2 = document.getElementById("page2");
+let step = 1;
 
-    p1.classList.add("exit");
+document.getElementById("mainBtn").onclick = () => {
+    if (step === 1) {
+        document.getElementById("page2").classList.remove("hidden");
+        step = 2;
+    } else {
+        window.location.href = "https://your-link-here.com";
+    }
+};
 
-    setTimeout(() => {
-        p1.classList.remove("active", "exit");
-        p2.classList.add("active");
-    }, 300);
-}
-
-/* Amount selection logic */
-const buttons = document.querySelectorAll(".amounts button");
-const input = document.getElementById("amountInput");
-
-buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        buttons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        input.value = btn.innerText;
-    });
+/* amount selection */
+document.querySelectorAll(".amount").forEach(el => {
+    el.onclick = () => {
+        document.querySelectorAll(".amount").forEach(a => a.classList.remove("active"));
+        el.classList.add("active");
+        document.querySelector("input").value = el.innerText;
+    };
 });
 </script>
 
