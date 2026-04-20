@@ -10,6 +10,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     background: #f5f5f5;
+    overflow-x: hidden;
 }
 
 .container {
@@ -17,31 +18,63 @@ body {
     margin: auto;
     background: white;
     padding: 15px;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Hide pages */
+/* PAGE SYSTEM */
 .page {
-    display: none;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease;
 }
 
 .page.active {
-    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    position: relative;
 }
 
-h1, h2 {
-    margin: 10px 0;
+.page.exit {
+    transform: translateX(-100%);
+    opacity: 0;
 }
 
+/* CONTENT ANIMATION */
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s forwards;
+}
+
+.fade-up.delay {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* IMAGE */
 .hero img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
+/* TEXT */
 .text {
     margin-top: 15px;
     line-height: 1.5;
 }
 
+/* BUTTON */
 .btn {
     display: block;
     width: 100%;
@@ -49,14 +82,20 @@ h1, h2 {
     color: white;
     text-align: center;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 10px;
     margin-top: 20px;
     font-size: 18px;
     border: none;
     cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Donation page styles */
+.btn:active {
+    transform: scale(0.96);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* DONATION PAGE */
 .toggle {
     display: flex;
     gap: 10px;
@@ -81,14 +120,21 @@ h1, h2 {
     padding: 12px;
     border: 1px solid #ccc;
     background: white;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.amounts button:hover {
+    transform: scale(1.05);
 }
 
 .amounts button.active {
     border: 2px solid #2f6fed;
+    background: #eef3ff;
 }
 
+/* INPUT */
 input {
     width: 100%;
     padding: 12px;
@@ -105,33 +151,32 @@ input {
 
     <!-- PAGE 1 -->
     <div id="page1" class="page active">
-        <h1>Help Them Live</h1>
+        <h1 class="fade-up">Help Them Live</h1>
 
-        <!-- IMAGE PLACEHOLDER -->
-        <div class="hero">
+        <div class="hero fade-up delay">
             <img src="your-image.jpg">
         </div>
 
-        <div class="text">
+        <div class="text fade-up delay">
             <p><b>Gaza’s newborns are fighting to survive.</b></p>
             <p>No food. No safety. No homes.</p>
             <p><b>We need your help.</b></p>
         </div>
 
-        <button class="btn" onclick="goToPage2()">Donate</button>
+        <button class="btn fade-up delay" onclick="goToPage2()">Donate</button>
     </div>
 
 
     <!-- PAGE 2 -->
     <div id="page2" class="page">
-        <h2>Secure donation</h2>
+        <h2 class="fade-up">Secure donation</h2>
 
-        <div class="toggle">
+        <div class="toggle fade-up delay">
             <button>Give once</button>
             <button>Monthly</button>
         </div>
 
-        <div class="amounts">
+        <div class="amounts fade-up delay">
             <button>€800</button>
             <button>€400</button>
             <button>€200</button>
@@ -140,19 +185,37 @@ input {
             <button>€20</button>
         </div>
 
-        <input type="text" value="€85">
+        <input id="amountInput" type="text" value="€85" class="fade-up delay">
 
-        <!-- FINAL LINK -->
-        <a href="https://your-link-here.com" class="btn">Donate</a>
+        <a href="https://your-link-here.com" class="btn fade-up delay">Donate</a>
     </div>
 
 </div>
 
 <script>
 function goToPage2() {
-    document.getElementById("page1").classList.remove("active");
-    document.getElementById("page2").classList.add("active");
+    const p1 = document.getElementById("page1");
+    const p2 = document.getElementById("page2");
+
+    p1.classList.add("exit");
+
+    setTimeout(() => {
+        p1.classList.remove("active", "exit");
+        p2.classList.add("active");
+    }, 300);
 }
+
+/* Amount selection logic */
+const buttons = document.querySelectorAll(".amounts button");
+const input = document.getElementById("amountInput");
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        input.value = btn.innerText;
+    });
+});
 </script>
 
 </body>
