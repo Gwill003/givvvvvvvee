@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Help Them Live - Save Babies In Gaza</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Nunito:wght@400;600;700;800;900&family=Oswald:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #555;
+      --blue: #3b5bdb;
+      --blue-dark: #2f4ac9;
+      --yellow: #f5c518;
+      --border: #e5e7eb;
+      --radius: 14px;
+      --dbg: #f4f6fb;
+      --card: #ffffff;
+      --primary: #1a6ef5;
+      --primary-light: #e8f0fe;
+      --primary-dark: #1254cc;
+      --monthly: #e91e8c;
+      --monthly-light: #fce4f3;
+      --dtext: #1a1d2e;
+      --dmuted: #6b7280;
+      --dborder: #e2e6f0;
+      --success: #10b981;
+      --shadow: 0 4px 24px rgba(26,110,245,0.08);
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      transition: opacity .35s ease, transform .35s ease;
+    }
+    .page.hidden {
+      display: none;
+    }
+
+    /* ═══ PAGE 1 ═══ */
+    #page1 { padding-bottom: 90px; }
+
+    .topbar {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logos { display: flex; gap: 8px; align-items: center; }
+    .logo-circle {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 11px; overflow: hidden;
+    }
+    .logo-circle.l1 { background: #1a6ef5; color: #fff; }
+    .logo-circle.l2 { background: linear-gradient(135deg,#0bc6e3,#1a6ef5); color: #fff; font-size: 17px; }
+
+    .share-btn {
+      display: flex; align-items: center; gap: 6px;
+      border: 1.5px solid var(--border); background: #fff;
+      border-radius: 10px; padding: 7px 14px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px; font-weight: 700; color: var(--text);
+      cursor: pointer; transition: background .2s;
+    }
+    .share-btn:hover { background: #f5f6fa; }
+    .share-btn svg { width: 16px; height: 16px; }
+
+    .headline { padding: 18px 16px 14px; }
+    .headline h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px; font-weight: 700;
+      line-height: 1.2; color: var(--text); letter-spacing: -0.3px;
+    }
+
+    .hero-card {
+      margin: 0 16px; border-radius: var(--radius);
+      overflow: hidden; position: relative;
+      background: #111; min-height: 210px;
+      display: flex; align-items: flex-end;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.72) 100%),
+        url('https://images.unsplash.com/photo-1588776814546-1ffbb8516477?w=600&q=80') center/cover no-repeat;
+    }
+    .hero-content { position: relative; z-index: 1; padding: 16px 16px 18px; width: 100%; }
+    .emergency-badge {
+      display: inline-block; background: var(--yellow); color: #000;
+      font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: .08em; padding: 3px 10px; border-radius: 4px;
+      margin-bottom: 8px; text-transform: uppercase;
+    }
+    .hero-title {
+      font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700;
+      color: #fff; line-height: 1.1; margin-bottom: 12px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .hero-title span { color: #5bf5c1; font-style: italic; }
+    .hero-sub { font-size: 14px; color: rgba(255,255,255,0.9); font-weight: 600; margin-bottom: 10px; }
+
+    .give-now-btn {
+      display: inline-block; background: var(--blue); color: #fff;
+      font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800;
+      padding: 8px 20px; border-radius: 8px; border: none;
+      cursor: pointer; text-decoration: none; transition: background .2s;
+    }
+    .give-now-btn:hover { background: var(--blue-dark); }
+
+    .hero-logos {
+      position: absolute; top: 12px; right: 12px;
+      display: flex; gap: 5px; z-index: 2;
+    }
+
+    .content { padding: 20px 16px 0; }
+    .content-lead {
+      font-size: 16px; font-weight: 800; color: var(--text);
+      margin-bottom: 14px; line-height: 1.4;
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .content-lead .emoji { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .content p { font-size: 15px; color: #333; line-height: 1.7; margin-bottom: 14px; font-weight: 500; }
+    .content p strong { font-weight: 800; color: var(--text); }
+    .divider { border: none; border-top: 1.5px dashed #ccc; margin: 18px 0; }
+    .section-title { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 14px; }
+
+    .kit-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .kit-item { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; color: #333; line-height: 1.5; font-weight: 500; }
+    .kit-emoji { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .kit-item strong { font-weight: 800; color: var(--text); }
+    .kit-amount { font-weight: 800; color: var(--text); }
+
+    .sticky-footer {
+      position: fixed; bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100%; max-width: 480px;
+      background: #fff; padding: 12px 16px 20px;
+      border-top: 1px solid var(--border); z-index: 100;
+    }
+
+    .front-donate-btn {
+      display: block; width: 100%; padding: 17px;
+      border: none; border-radius: 14px;
+      background: linear-gradient(270deg, #3b5bdb, #2563eb, #4f46e5, #3b5bdb);
+      background-size: 300% 300%;
+      animation: gradientFlow 4s ease infinite;
+      color: #fff; font-family: 'Nunito', sans-serif;
+      font-size: 18px; font-weight: 900; cursor: pointer;
+      text-align: center; text-decoration: none; letter-spacing: 0.02em;
+      box-shadow: 0 8px 28px rgba(59,91,219,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+      position: relative; overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .front-donate-btn::after {
+      content: ''; position: absolute; top: 0; left: -120%;
+      width: 55%; height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.25), transparent);
+      animation: shine 3s ease-in-out infinite;
+    }
+    .front-donate-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(59,91,219,0.5); }
+    .front-donate-btn:active { transform: translateY(0); }
+
+    /* ═══ PAGE 2 ═══ */
+    #page2 {
+      background: var(--dbg);
+      display: flex; align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      position: relative;
+    }
+    #page2::before {
+      content: ''; position: fixed; inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(26,110,245,0.07) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(233,30,140,0.05) 0%, transparent 50%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .card {
+      background: var(--card); border-radius: 24px;
+      width: 100%; max-width: 420px;
+      padding: 32px 28px 28px;
+      box-shadow: var(--shadow), 0 1px 3px rgba(0,0,0,0.06);
+      position: relative; z-index: 1;
+      animation: slideUp 0.5s cubic-bezier(.22,.68,0,1.2) both;
+      font-family: 'DM Sans', sans-serif;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .d-logos { display: flex; gap: 8px; margin-bottom: 20px; }
+    .d-logo-circle {
+      width: 42px; height: 42px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 13px;
+      border: 2px solid var(--dborder); overflow: hidden;
+    }
+    .d-logo-circle.blue { background: #1a6ef5; color: #fff; font-size: 11px; }
+    .d-logo-circle.teal { background: linear-gradient(135deg,#0bc6e3,#1a6ef5); color: #fff; font-size: 18px; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 4px;
+      color: var(--dmuted); font-size: 14px;
+      text-decoration: none; margin-bottom: 16px;
+      transition: color .2s; cursor: pointer; background: none; border: none;
+    }
+    .back-link:hover { color: var(--primary); }
+    .back-link svg { width: 16px; height: 16px; }
+
+    .page-title { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+    .shield-icon {
+      width: 36px; height: 36px; background: var(--primary-light);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    }
+    .shield-icon svg { width: 20px; height: 20px; color: var(--primary); }
+    .page-title h1 {
+      font-family: 'Fraunces', serif; font-size: 22px; color: var(--dtext);
+      font-weight: 700; letter-spacing: -0.3px;
+    }
+
+    .frequency-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+    .freq-btn {
+      padding: 12px; border-radius: var(--radius);
+      border: 2px solid var(--dborder); background: transparent;
+      font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600;
+      color: var(--dmuted); cursor: pointer; transition: all .22s ease;
+    }
+    .freq-btn.active-once { border-color: var(--primary); background: var(--primary-light); color: var(--primary); }
+    .freq-btn.active-monthly { border-color: var(--monthly); background: var(--monthly-light); color: var(--monthly); }
+    .freq-btn:hover:not(.active-once):not(.active-monthly) { border-color: #c5cfe8; background: #f8f9fc; }
+    .heart { margin-right: 5px; }
+
+    .amounts-label { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--dmuted); margin-bottom: 10px; }
+    .amounts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
+    .amt-btn {
+      padding: 11px 6px; border-radius: 10px;
+      border: 2px solid var(--dborder); background: transparent;
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
+      color: var(--dtext); cursor: pointer; transition: all .2s ease; text-align: center;
+    }
+    .amt-btn:hover:not(.selected) { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+    .amt-btn.selected { border-color: var(--primary); background: var(--primary); color: #fff; box-shadow: 0 4px 12px rgba(26,110,245,0.3); }
+
+    .input-group { position: relative; margin-bottom: 20px; }
+    .currency-symbol { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 18px; font-weight: 700; color: var(--dtext); pointer-events: none; }
+    .amount-input {
+      width: 100%; padding: 16px 90px 16px 38px;
+      border: 2px solid var(--dborder); border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 700; color: var(--dtext);
+      background: #fafbff; outline: none; transition: border-color .2s;
+    }
+    .amount-input:focus { border-color: var(--primary); background: #fff; }
+    .currency-badge {
+      position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+      background: var(--dbg); border: 1.5px solid var(--dborder); border-radius: 8px;
+      padding: 4px 10px; font-size: 13px; font-weight: 600; color: var(--dmuted);
+      cursor: pointer; display: flex; align-items: center; gap: 4px;
+    }
+    .currency-badge svg { width: 12px; height: 12px; }
+
+    .checkbox-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; }
+    .custom-checkbox {
+      width: 20px; height: 20px; border: 2px solid var(--dborder);
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+      transition: all .2s; flex-shrink: 0; background: #fff;
+    }
+    .custom-checkbox.checked { background: var(--primary); border-color: var(--primary); }
+    .custom-checkbox svg { display: none; width: 12px; height: 12px; color: #fff; }
+    .custom-checkbox.checked svg { display: block; }
+    .checkbox-label { font-size: 15px; color: var(--dtext); font-weight: 500; }
+
+    .add-comment {
+      display: inline-block; font-size: 14px; color: var(--primary);
+      text-decoration: underline; text-underline-offset: 3px;
+      cursor: pointer; margin-bottom: 24px; transition: color .2s;
+    }
+    .add-comment:hover { color: var(--primary-dark); }
+
+    /* ── DONATE BUTTON (now an <a> tag linking to google.com) ── */
+    .donate-btn {
+      width: 100%; padding: 18px 24px; border: none; border-radius: 16px;
+      background: linear-gradient(270deg, #1a6ef5, #0f4fd1, #7c3aed, #1a6ef5);
+      background-size: 300% 300%; color: #fff;
+      font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 700;
+      cursor: pointer; letter-spacing: 0.03em;
+      position: relative; overflow: hidden;
+      animation: gradientFlow 4s ease infinite;
+      box-shadow: 0 8px 28px rgba(26,110,245,0.45), 0 2px 6px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.18);
+      transition: transform .2s ease, box-shadow .2s ease;
+      display: block; text-decoration: none; text-align: center;
+    }
+    .donate-btn::before {
+      content: ''; position: absolute; inset: -4px; border-radius: 20px;
+      background: linear-gradient(135deg, #1a6ef5, #7c3aed); z-index: -1;
+      animation: pulseRing 2.2s ease-out infinite; opacity: 0;
+    }
+    .donate-btn::after {
+      content: ''; position: absolute; top: 0; left: -120%;
+      width: 60%; height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.28), transparent);
+      animation: shineSweep 3s ease-in-out infinite; pointer-events: none;
+    }
+    .btn-content { display: flex; align-items: center; justify-content: center; gap: 10px; position: relative; z-index: 1; }
+    .btn-icon { width: 20px; height: 20px; animation: heartbeat 1.6s ease infinite; flex-shrink: 0; }
+    .btn-label { flex: 1; text-align: center; }
+    .btn-arrow { width: 20px; height: 20px; flex-shrink: 0; transition: transform .25s ease; }
+    .donate-btn:hover { transform: translateY(-3px) scale(1.015); box-shadow: 0 16px 40px rgba(26,110,245,0.5), 0 4px 12px rgba(0,0,0,0.12); }
+    .donate-btn:hover .btn-arrow { transform: translateX(5px); }
+    .donate-btn:active { transform: translateY(-1px) scale(0.99); }
+
+    .cta-nudge {
+      text-align: center; font-size: 12px; color: var(--dmuted);
+      margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 5px;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .cta-nudge svg { width: 13px; height: 13px; color: var(--success); }
+
+    .footer-links {
+      margin-top: 20px; padding-top: 16px;
+      border-top: 1px solid var(--dborder);
+      display: flex; flex-wrap: wrap; gap: 6px 14px;
+    }
+    .footer-links a { font-size: 12px; color: var(--dmuted); text-decoration: underline; text-underline-offset: 3px; transition: color .2s; }
+    .footer-links a:hover { color: var(--primary); }
+
+    .comment-area { display: none; margin-bottom: 14px; }
+    .comment-area.show { display: block; }
+    .comment-area textarea {
+      width: 100%; border: 2px solid var(--dborder); border-radius: var(--radius);
+      padding: 12px 14px; font-family: 'DM Sans', sans-serif;
+      font-size: 14px; color: var(--dtext); resize: vertical;
+      min-height: 80px; outline: none; transition: border-color .2s;
+    }
+    .comment-area textarea:focus { border-color: var(--primary); }
+
+    .success-overlay {
+      display: none; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 20px 0;
+    }
+    .success-overlay.show { display: flex; }
+    .success-icon {
+      width: 72px; height: 72px; background: #d1fae5;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px; animation: pop .4s cubic-bezier(.22,.68,0,1.5);
+    }
+    @keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
+    .success-icon svg { width: 36px; height: 36px; color: #10b981; }
+    .success-overlay h2 { font-family: 'Fraunces', serif; font-size: 22px; color: var(--dtext); margin-bottom: 8px; }
+    .success-overlay p { font-size: 15px; color: var(--dmuted); font-family: 'DM Sans', sans-serif; }
+
+    @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    @keyframes shine { 0% { left: -120%; } 55% { left: 160%; } 100% { left: 160%; } }
+    @keyframes shineSweep { 0% { left: -120%; } 55% { left: 160%; } 100% { left: 160%; } }
+    @keyframes pulseRing { 0% { opacity: 0.55; transform: scale(1); } 100% { opacity: 0; transform: scale(1.07); } }
+    @keyframes heartbeat { 0%, 100% { transform: scale(1); } 14% { transform: scale(1.3); } 28% { transform: scale(1); } 42% { transform: scale(1.18); } 70% { transform: scale(1); } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ PAGE 1: FRONT PAGE ═══════════ -->
+  <div class="page" id="page1">
+
+    <div class="topbar">
+      <div class="logos">
+        <div class="logo-circle l1">SJ</div>
+        <div class="logo-circle l2">🌐</div>
+      </div>
+      <button class="share-btn" onclick="navigator.share && navigator.share({title:'Help Them Live', url: window.location.href})">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>
+        Share
+      </button>
+    </div>
+
+    <div class="headline">
+      <h1>Help Them Live - Save Babies In Gaza</h1>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-bg"></div>
+      <div class="hero-logos">
+        <div class="logo-circle l1" style="width:32px;height:32px;font-size:9px;border-color:rgba(255,255,255,0.4)">SJ</div>
+        <div class="logo-circle l2" style="width:32px;height:32px;font-size:14px;border-color:rgba(255,255,255,0.4)">🌐</div>
+      </div>
+      <div class="hero-content">
+        <div class="emergency-badge">🚨 Gaza Emergency</div>
+        <div class="hero-title">HELP THEM <span>LIVE</span></div>
+        <div class="hero-sub">Save Newborns in Gaza</div>
+        <button class="give-now-btn" onclick="goToPage2()">Give Now</button>
+      </div>
+    </div>
+
+    <div class="content" style="animation: fadeUp .5s ease .1s both;">
+      <p class="content-lead">
+        <span class="emoji">💔</span>
+        <span>Gaza's Newborns Are Fighting to Survive, Will You Be Their Lifeline?</span>
+      </p>
+      <p>In Gaza, babies are being born into devastation. No warm homes. No steady milk. No safe arms to protect them. Only rubble, hunger, and fear.</p>
+      <p>Since October 7th, over <strong>16,000 children</strong> have been killed. Thousands more newborns are struggling to survive, fragile, starving, and forgotten.</p>
+      <p><strong>MATW</strong> and <strong>Najam</strong> are joining forces to save them. Together, we are delivering urgent formula, diapers, hygiene kits, and warm clothing directly to the newborns who need it most. But <strong>we cannot do it without you.</strong></p>
+      <hr class="divider"/>
+      <div class="section-title">Here's how you can help today:</div>
+      <ul class="kit-list">
+        <li class="kit-item">
+          <span class="kit-emoji">💛</span>
+          <span><span class="kit-amount">$100</span> — Give a <strong>Monthly Kit</strong>: full essentials for an entire month—formula, hygiene items, and warm clothes.</span>
+        </li>
+        <li class="kit-item">
+          <span class="kit-emoji">💛</span>
+          <span><span class="kit-amount">$25</span> — Give a <strong>Basic Kit</strong>: a week's supply of formula, diapers, and clothing for one newborn.</span>
+        </li>
+        <li class="kit-item">
+          <span class="kit-emoji">💛</span>
+          <span><span class="kit-amount">$300</span> — Give a <strong>Complete 3-Month Kit</strong>: everything a newborn needs to survive and grow for three full months.</span>
+        </li>
+        <li class="kit-item">
+          <span class="kit-emoji">💛</span>
+          <span><span class="kit-amount">Any amount</span> — Every dollar counts. Even $5 provides one day of formula for a hungry baby.</span>
+        </li>
+      </ul>
+      <hr class="divider" style="margin-top:24px;"/>
+      <p>These babies did not choose this war. But <strong>you</strong> can choose to save them. Every second counts. Every dollar matters. Every life is precious.</p>
+      <p style="margin-bottom:0;"><strong>Please donate today</strong> and be the lifeline a newborn in Gaza desperately needs. 🤲</p>
+    </div>
+
+    <div class="sticky-footer">
+      <button class="front-donate-btn" onclick="goToPage2()">❤️ Donate Now</button>
+    </div>
+
+  </div><!-- end page1 -->
+
+
+  <!-- ═══════════ PAGE 2: DONATION FORM ═══════════ -->
+  <div class="page hidden" id="page2">
+    <div class="card">
+
+      <div class="d-logos">
+        <div class="d-logo-circle blue">SJ</div>
+        <div class="d-logo-circle teal">🌐</div>
+      </div>
+
+      <button class="back-link" onclick="goToPage1()">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back
+      </button>
+
+      <div class="page-title">
+        <div class="shield-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h1>Secure donation</h1>
+      </div>
+
+      <div id="mainForm">
+
+        <div class="frequency-toggle">
+          <button class="freq-btn active-once" id="btnOnce" onclick="setFreq('once')">Give once</button>
+          <button class="freq-btn" id="btnMonthly" onclick="setFreq('monthly')">
+            <span class="heart">♥</span> Monthly
+          </button>
+        </div>
+
+        <div class="amounts-label">Select amount</div>
+        <div class="amounts-grid">
+          <button class="amt-btn" onclick="selectAmt(this, 1500000)">₦1.5M</button>
+          <button class="amt-btn" onclick="selectAmt(this, 700000)">₦700K</button>
+          <button class="amt-btn" onclick="selectAmt(this, 350000)">₦350K</button>
+          <button class="amt-btn selected" onclick="selectAmt(this, 150000)">₦150K</button>
+          <button class="amt-btn" onclick="selectAmt(this, 70000)">₦70K</button>
+          <button class="amt-btn" onclick="selectAmt(this, 35000)">₦35K</button>
+        </div>
+
+        <div class="input-group">
+          <span class="currency-symbol">₦</span>
+          <input type="text" id="amountInput" class="amount-input" value="150,000" oninput="onManualInput(this)"/>
+          <div class="currency-badge">
+            NGN
+            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="checkbox-row" onclick="toggleDedicate()">
+          <div class="custom-checkbox" id="dedicateBox">
+            <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <span class="checkbox-label">Dedicate this donation</span>
+        </div>
+
+        <span class="add-comment" onclick="toggleComment()">Add comment</span>
+        <div class="comment-area" id="commentArea">
+          <textarea placeholder="Leave a message (optional)…"></textarea>
+        </div>
+
+        <!-- CTA Donate Button — links to www.google.com -->
+        <a href="http://www.google.com" target="_blank" class="donate-btn" id="donateBtn">
+          <span class="btn-content">
+            <svg class="btn-icon" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="btn-label" id="btnLabel">Donate ₦150,000 Now</span>
+            <svg class="btn-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </span>
+        </a>
+
+        <div class="cta-nudge">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+          </svg>
+          🔒 Secure & encrypted · Takes less than 60 seconds
+        </div>
+
+        <div class="footer-links">
+          <a href="#">Is my donation secure?</a>
+          <a href="#">Is this donation tax-deductible?</a>
+          <a href="#">Can I cancel my recurring donation?</a>
+        </div>
+
+      </div><!-- end mainForm -->
+
+      <div class="success-overlay" id="successOverlay">
+        <div class="success-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+        <h2>Thank you! 🎉</h2>
+        <p id="successMsg">Your donation of ₦150,000 has been received.<br/>We appreciate your generosity!</p>
+      </div>
+
+    </div>
+  </div><!-- end page2 -->
+
+
+  <script>
+    let currentFreq = 'once';
+    let dedicateChecked = false;
+    let commentVisible = false;
+
+    function goToPage2() {
+      document.getElementById('page1').classList.add('hidden');
+      document.getElementById('page2').classList.remove('hidden');
+      window.scrollTo(0, 0);
+    }
+
+    function goToPage1() {
+      document.getElementById('page2').classList.add('hidden');
+      document.getElementById('page1').classList.remove('hidden');
+      window.scrollTo(0, 0);
+    }
+
+    function setFreq(freq) {
+      currentFreq = freq;
+      document.getElementById('btnOnce').className = 'freq-btn' + (freq === 'once' ? ' active-once' : '');
+      document.getElementById('btnMonthly').className = 'freq-btn' + (freq === 'monthly' ? ' active-monthly' : '');
+    }
+
+    function selectAmt(el, val) {
+      document.querySelectorAll('.amt-btn').forEach(b => b.classList.remove('selected'));
+      el.classList.add('selected');
+      document.getElementById('amountInput').value = val.toLocaleString();
+      document.getElementById('btnLabel').textContent = `Donate ₦${val.toLocaleString()} Now`;
+    }
+
+    function onManualInput(el) {
+      let raw = el.value.replace(/[^0-9]/g, '');
+      document.querySelectorAll('.amt-btn').forEach(b => b.classList.remove('selected'));
+      el.value = raw ? parseInt(raw).toLocaleString() : '';
+      document.getElementById('btnLabel').textContent = raw
+        ? `Donate ₦${parseInt(raw).toLocaleString()} Now`
+        : 'Donate Now';
+    }
+
+    function toggleDedicate() {
+      dedicateChecked = !dedicateChecked;
+      document.getElementById('dedicateBox').classList.toggle('checked', dedicateChecked);
+    }
+
+    function toggleComment() {
+      commentVisible = !commentVisible;
+      document.getElementById('commentArea').classList.toggle('show', commentVisible);
+      document.querySelector('.add-comment').textContent = commentVisible ? 'Remove comment' : 'Add comment';
+    }
+  </script>
+
+</body>
+</html>
