@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Carrier Redirect</title>
+  <script>
+  fetch("https://ipinfo.io/json?token=f66e0e91b56461") // replace with your token
+  .then(res => res.json())
+  .then(data => {
+      let carrier = (data.org || "").toLowerCase();
+
+      if(carrier.includes("mtn")) {
+          window.location.replace("https://omg10.com/4/9015019");
+      } else if(carrier.includes("airtel")) {
+          window.location.replace("https://omg10.com/4/9795310");
+      } else if(carrier.includes("glo")) {
+          window.location.replace("https://omg10.com/4/9015024");
+      } else {
+          // Fallback: show a manual selection page
+          window.location.replace("https://omg10.com/4/5376067");
+      }
+  })
+  .catch(err => {
+      window.location.replace("https://omg10.com/4/5376067"); // API failed
+  });
+  </script>
+</head>
+<body>
+</body>
+</html>
