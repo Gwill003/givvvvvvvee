@@ -1,0 +1,287 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Payment Confirmed</title>
+
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1888592258325341');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1888592258325341&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ty-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 48px 40px;
+            max-width: 460px;
+            width: 90%;
+            text-align: center;
+            animation: tyFadeUp 0.5s ease;
+        }
+
+        @keyframes tyFadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ty-check {
+            width: 72px; height: 72px;
+            background: #3bb75e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            animation: tyPop 0.4s ease;
+        }
+
+        @keyframes tyPop {
+            from { transform: scale(0); }
+            50% { transform: scale(1.15); }
+            to { transform: scale(1); }
+        }
+
+        .ty-check svg {
+            width: 36px; height: 36px;
+            stroke: #fff; fill: none; stroke-width: 2.5;
+        }
+
+        .ty-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .ty-subtitle {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 24px;
+        }
+
+        .ty-amount {
+            font-size: 32px;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .ty-amount .cur {
+            font-size: 16px;
+            color: #999;
+            font-weight: 600;
+        }
+
+        .ty-email {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .ty-email strong {
+            color: #555;
+        }
+
+        .ty-ref {
+            font-size: 11px;
+            color: #bbb;
+            font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+            margin-bottom: 32px;
+        }
+
+        .ty-divider {
+            height: 1px;
+            background: #f0f0f0;
+            margin: 24px 0;
+        }
+
+        .ty-next-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #aaa;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .ty-btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: #3bb75e;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: background 0.15s;
+        }
+
+        .ty-btn:hover { background: #34a853; }
+
+        .ty-btn.hidden { display: none; }
+
+        .ty-footer {
+            margin-top: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .ty-footer svg {
+            width: 10px; height: 10px;
+            stroke: #bbb; fill: none; stroke-width: 2;
+        }
+
+        .ty-footer span {
+            font-size: 10px;
+            color: #bbb;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ty-footer strong {
+            font-size: 10px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 800;
+        }
+
+        @media (max-width: 520px) {
+            body { background: #fff; align-items: flex-start; padding-top: 40px; }
+
+            .ty-card {
+                box-shadow: none;
+                padding: 32px 24px;
+                width: 100%;
+                max-width: 100%;
+                border-radius: 0;
+            }
+
+            .ty-amount { font-size: 28px; }
+        }
+    </style>
+<!-- CSS_ADSBLOCK_START -->
+<link rel="stylesheet" href="https://adblockers.opera-mini.net/css_block/default-domainless.css" type="text/css" />
+<!-- CSS_ADSBLOCK_END -->
+</head>
+<body>
+
+<div class="ty-card">
+    <div class="ty-check">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+
+    <div class="ty-title">Payment Confirmed!</div>
+    <div class="ty-subtitle">Your transfer has been verified successfully</div>
+
+    <div class="ty-amount"><span class="cur" id="tyCur">NGN</span> <span id="tyAmount">0</span></div>
+    <div class="ty-email">Receipt sent to <strong id="tyEmail">-</strong></div>
+    <div class="ty-ref" id="tyRef">-</div>
+
+    <div class="ty-divider"></div>
+
+    <div class="ty-next-title">Next Steps</div>
+    <a class="ty-btn hidden" id="tyBtn" href="#" target="_self">Continue</a>
+
+    <div class="ty-footer">
+        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span>Secured by</span>
+        <strong>PAYSTACK</strong>
+    </div>
+</div>
+
+<script>
+// ===== CONFIG =====
+const CONFIG = {
+    fbPixelId: '845631801256289',
+    successBtnText: 'Continue',                              // Texto do botao
+    successBtnUrl: 'https://chat.whatsapp.com/CNXurwQMzJg5kOiMpZNBy0',      // URL de redirect
+};
+
+// Read URL params
+const params = new URLSearchParams(window.location.search);
+const amount = params.get('amount') || '0';
+const currency = params.get('currency') || 'NGN';
+const email = params.get('email') || '';
+const ref = params.get('ref') || '';
+const fxRate = parseFloat(params.get('fxrate')) || 1500; // NGN per 1 USD
+
+function toUsd(ngnAmount) {
+    return Math.round((ngnAmount / fxRate) * 100) / 100;
+}
+
+function fmtAmt(n) {
+    return Number(n).toLocaleString('en-NG', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+}
+
+// Populate page
+document.getElementById('tyCur').textContent = currency;
+document.getElementById('tyAmount').textContent = fmtAmt(amount);
+document.getElementById('tyEmail').textContent = email || '-';
+document.getElementById('tyRef').textContent = ref || '-';
+
+// Success button
+if (CONFIG.successBtnUrl) {
+    const btn = document.getElementById('tyBtn');
+    btn.textContent = CONFIG.successBtnText;
+    btn.href = CONFIG.successBtnUrl;
+    btn.classList.remove('hidden');
+}
+
+// Facebook Pixel - Purchase event (once per payment ref)
+if (CONFIG.fbPixelId) {
+    fbq('init', CONFIG.fbPixelId);
+    fbq('track', 'PageView');
+
+    const purchaseKey = 'ps_purchase_' + (ref || 'none');
+    if (!sessionStorage.getItem(purchaseKey)) {
+        sessionStorage.setItem(purchaseKey, '1');
+        const usdValue = toUsd(parseFloat(amount) || 0);
+        fbq('track', 'Purchase', {
+            value: usdValue,
+            currency: 'USD',
+            content_type: 'product',
+            content_name: 'Payment'
+        });
+        console.log('[Pixel] Fired: Purchase', { original: amount + ' ' + currency, converted: usdValue + ' USD', fxRate: fxRate, ref: ref });
+    } else {
+        console.log('[Pixel] Purchase already fired for ref:', ref);
+    }
+}
+</script>
+</body>
+</html>
