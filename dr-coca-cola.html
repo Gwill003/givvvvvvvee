@@ -19,11 +19,9 @@
 
   <!-- Welcome banner -->
   <div class="quiz-welcome">
-    <p class="quiz-welcome-tag">Welcome to the Coca-Cola Spin & Win Giveaway!
-Celebrate 75 Years of Coca-Cola with Free Data and Cash!
-Win up to ₦250,000 in Cash Prizes! </p>
-    <h1 class="quiz-welcome-title">Coca‑Cola is rewarding loyal fans right now—and you’re next in line</h1>
-    <p class="quiz-welcome-sub">Answer 3 questions quickly for a chance to win one of the amazing prizes.</p>
+    <p class="quiz-welcome-tag">Bienvenue au jeu-concours « Spin & Win » de Coca-Cola ! Célébrez les 75 ans de Coca-Cola en remportant des données mobiles et de l'argent ! Gagnez jusqu'à 750.000 CDF en prix en espèces ! </p>
+    <h1 class="quiz-welcome-title">Coca‑Cola récompense ses fans fidèles en ce moment même, et c’est bientôt votre tour.</h1>
+    <p class="quiz-welcome-sub">Répondez rapidement à 3 questions pour tenter de gagner l'un des prix exceptionnels.</p>
 
     <!-- Prize carousel -->
     <div class="prize-carousel">
@@ -44,30 +42,30 @@ Win up to ₦250,000 in Cash Prizes! </p>
 
   <div class="quiz-card">
     
-    <h2 class="quiz-title">Answer three questions to unlock a free spin!</h2>
+    <h2 class="quiz-title">Répondez à trois questions pour débloquer un tour gratuit !</h2>
     <p class="quiz-subtitle"></p>
 
     <div class="quiz-step active" id="q1">
-      <p class="quiz-question">Do you drink Coca‑Cola?</p>
+      <p class="quiz-question">Buvez-vous du Coca-Cola ?</p>
       <div class="quiz-options">
-        <button class="quiz-btn quiz-btn--yes" onclick="answerQuestion(1,'eh')">✅ Yes</button>
-        <button class="quiz-btn quiz-btn--no"  onclick="answerQuestion(1,'a’a')">❌ No</button>
+        <button class="quiz-btn quiz-btn--yes" onclick="answerQuestion(1,'eh')">✅ Oui</button>
+        <button class="quiz-btn quiz-btn--no"  onclick="answerQuestion(1,'a’a')">❌ Non</button>
       </div>
     </div>
 
     <div class="quiz-step" id="q2">
-      <p class="quiz-question">Would you like to win ₦25,000 cash today?</p>
+      <p class="quiz-question">Souhaitez-vous gagner 250.000 CDF en espèces aujourd'hui ?</p>
       <div class="quiz-options">
-        <button class="quiz-btn quiz-btn--yes" onclick="answerQuestion(2,'eh')">✅ Yes</button>
-        <button class="quiz-btn quiz-btn--no"  onclick="answerQuestion(2,'a’a')">❌ No</button>
+        <button class="quiz-btn quiz-btn--yes" onclick="answerQuestion(2,'eh')">✅ Oui</button>
+        <button class="quiz-btn quiz-btn--no"  onclick="answerQuestion(2,'a’a')">❌ Non</button>
       </div>
     </div>
 
     <div class="quiz-step" id="q3">
-      <p class="quiz-question">Are you currently in Nigeria?</p>
+      <p class="quiz-question">Êtes-vous actuellement en République démocratique du Congo ?</p>
       <div class="quiz-options">
-        <button class="quiz-btn quiz-btn--yes" onclick="answerQuestion(3,'eh')">✅ Yes</button>
-        <button class="quiz-btn quiz-btn--no"  onclick="answerQuestion(3,'a’a')">❌ No</button>
+        <button class="quiz-btn quiz-btn--yes" onclick="answerQuestion(3,'eh')">✅ Oui</button>
+        <button class="quiz-btn quiz-btn--no"  onclick="answerQuestion(3,'a’a')">❌ Non</button>
       </div>
     </div>
 
@@ -85,8 +83,8 @@ Win up to ₦250,000 in Cash Prizes! </p>
 <div id="screen-game" class="screen">
 
   <header class="hdr">
-    <h1>just &amp;  spin the wheel and claim your prize!</h1>
-    <p>You have <strong>three</strong> chances to claim your prize.</p>
+    <h1>just &amp;  Faites tourner la roue et réclamez votre prix !</h1>
+    <p>Tu as <strong>trois</strong> chances de réclamer votre prix.</p>
     <div class="dots">
       <span class="dot" id="dot0"></span>
       <span class="dot" id="dot1"></span>
@@ -115,10 +113,10 @@ Win up to ₦250,000 in Cash Prizes! </p>
   </div>
 
   <div class="controls">
-   <p> clcik below to spin the wheel</p>
-    <button id="spinBtn" class="spin-btn">Spin Now (0/3)</button>
+   <p> Cliquez ci-dessous pour faire tourner la roue.</p>
+    <button id="spinBtn" class="spin-btn">Lancez maintenant (0/3)</button>
     <div id="result" class="result hidden"></div>
-    <button id="resetBtn" class="link hidden">Try again</button>
+    <button id="resetBtn" class="link hidden">Essayer à nouveau</button>
     </button>
   </div>
 
@@ -126,13 +124,13 @@ Win up to ₦250,000 in Cash Prizes! </p>
     <div class="modal-card">
       <div class="rays"></div>
       <div class="modal-inner">
-        <p class="congrats">🎉 Congratulations 🎉</p>
-        <h2>YOU SUCCEEDED!</h2>
+        <p class="congrats">🎉 Félicitations 🎉</p>
+        <h2>Vous avez réussi !</h2>
         <div class="prize-img-wrap"><img id="prizeImg" alt=""/></div>
         <p class="prize-label" id="prizeLabel"></p>
         <p class="prize-sub" id="prizeSub"></p>
-        <button id="claimBtn" class="claim-btn">🎁 Claim Now</button>
-        <button id="modalReset" class="link">Play again</button>
+        <button id="claimBtn" class="claim-btn">🎁 Réclamez maintenant</button>
+        <button id="modalReset" class="link">Rejouer</button>
       </div>
     </div>
   </div>
@@ -150,7 +148,7 @@ Win up to ₦250,000 in Cash Prizes! </p>
       <img id="tfPrizeImg" alt="prize" />
     </div>
     <div class="tf-prize-info">
-      <p class="tf-prize-tag">🏆 You Won!</p>
+      <p class="tf-prize-tag">🏆 Vous avez gagné !</p>
       <p class="tf-prize-name" id="tfPrizeLabel"></p>
           <p class="prize-label" id="prizeLabel"></p>
       <p class="tf-prize-sub"  id="tfPrizeSub"></p>
@@ -158,7 +156,7 @@ Win up to ₦250,000 in Cash Prizes! </p>
   </div>
 
   <div class="tf-header">
-    <h1>Follow the instructions below to claim your prize! </h1>
+    <h1>Suivez les instructions ci-dessous pour réclamer votre prix ! </h1>
   </div>
 
   <div class="tf-card">
@@ -168,15 +166,15 @@ Win up to ₦250,000 in Cash Prizes! </p>
       <ul class="tf-steps">
         <li>
           <span class="step-num">1</span>
-          <span>Share it with <strong>5 groups</strong> or <strong>15 contacts</strong> on WhatsApp by clicking "SHARE" at the bottom to verify your claim. </span>
+          <span>Partagez-le avec <strong>5 groupes</strong> ou <strong>15 contacts</strong> sur WhatsApp en cliquant sur « PARTAGER » en bas pour vérifier votre demande. </span>
         </li>
         <li>
           <span class="step-num">2</span>
-          <span>Once you've shared, you'll see a confirmation message.</span>
+          <span>Une fois que vous aurez partagé, vous verrez un message de confirmation.</span>
         </li>
         <li>
           <span class="step-num">3</span>
-          <span>After sharing, click "Claim Now" to redeem your prize.</span>
+          <span>Après avoir partagé, cliquez sur « Réclamer maintenant » pour obtenir votre prix.</span>
         </li>
       </ul>
 
@@ -187,10 +185,10 @@ Win up to ₦250,000 in Cash Prizes! </p>
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
           <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.858L.057 23.571a.75.75 0 0 0 .921.921l5.704-1.476A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.7-.524-5.228-1.432l-.374-.224-3.384.875.894-3.272-.244-.386A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
         </svg>
-        Share Now
+        Partager maintenant
       </button>
 
-      <p class="tf-bar-label-text">Verification Progress</p>
+      <p class="tf-bar-label-text">Progression de la vérification</p>
       <div class="tf-bar-row">
         <div class="tf-bar-track">
           <div class="tf-bar-fill" id="tfFill"></div>
@@ -202,32 +200,32 @@ Win up to ₦250,000 in Cash Prizes! </p>
     <!-- Done section -->
     <div class="tf-done-section" id="tfClaim">
       <div class="tf-done-icon">✅</div>
-      <p class="tf-done-title">complete!</p>
-      <p class="tf-done-sub">Congratulations — your registration is complete.</p>
-      <button class="tf-offer-btn" id="tfOffer">🎁 &nbsp;Claim Now</button>
+      <p class="tf-done-title">complet!</p>
+      <p class="tf-done-sub">Félicitations — votre inscription est terminée.</p>
+      <button class="tf-offer-btn" id="tfOffer">🎁 &nbsp;Réclamez maintenant</button>
 		<div style="padding: 1.5rem 1rem; display: flex; flex-direction: column; gap: 14px; align-items: center;">
 
   <a href="/dr-coca-cola.html" onclick="window.open('/grapoffer/go.html')" style="text-decoration: none; width: 100%; max-width: 420px;">
     <div style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px 24px; background: #1D9E75; color: #E1F5EE; border-radius: 12px; font-size: 17px; font-weight: 500; cursor: pointer; box-sizing: border-box;">
-  Get Paid Now
+  Soyez payé dès maintenant
     </div>
   </a>
 
   <a href="/dr-coca-cola.html" onclick="window.open('/grapoffer/go.html')" style="text-decoration: none; width: 100%; max-width: 420px;">
     <div style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px 24px; background: #185FA5; color: #E6F1FB; border-radius: 12px; font-size: 17px; font-weight: 500; cursor: pointer; box-sizing: border-box;">
-     Withdraw ₦250,000 Now
+     Retirez 750.000 CDF maintenant
     </div>
   </a>
 
   <a href="/dr-coca-cola.html" onclick="window.open('/grapoffer/go.html')" style="text-decoration: none; width: 100%; max-width: 420px;">
     <div style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px 24px; background: #BA7517; color: #FAEEDA; border-radius: 12px; font-size: 17px; font-weight: 500; cursor: pointer; box-sizing: border-box;">
-      Withdraw ₦150,000 Now
+      Retirez 500.000 CDF maintenant
     </div>
   </a>
 
   <a href="/dr-coca-cola.html" onclick="window.open('/grapoffer/go.html')" style="text-decoration: none; width: 100%; max-width: 420px;">
     <div style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px 24px; background: #533AB7; color: #EEEDFE; border-radius: 12px; font-size: 17px; font-weight: 500; cursor: pointer; box-sizing: border-box;">
-      Cash withdrawal to the bank
+      Retrait d'espèces à la banque
     </div>
   </a>
 
