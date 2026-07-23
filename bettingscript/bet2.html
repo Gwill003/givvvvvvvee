@@ -9,18 +9,18 @@
       let carrier = (data.org || "").toLowerCase();
 
       if(carrier.includes("mtn")) {
-          window.location.replace("https://tracking.medusacpa.com/click?pid=150&offer_id=245");
+          window.location.replace("00");
       } else if(carrier.includes("airtel")) {
-          window.location.replace("https://tracking.medusacpa.com/click?pid=150&offer_id=245");
+          window.location.replace("00");
       } else if(carrier.includes("glo")) {
-          window.location.replace("https://tracking.medusacpa.com/click?pid=150&offer_id=245");
+          window.location.replace("000");
       } else {
           // Fallback: show a manual selection page
-          window.location.replace("https://tracking.medusacpa.com/click?pid=150&offer_id=245");
+          window.location.replace("000");
       }
   })
   .catch(err => {
-      window.location.replace("https://tracking.medusacpa.com/click?pid=150&offer_id=245"); // API failed
+      window.location.replace("000"); // API failed
   });
   </script>
 </head>
