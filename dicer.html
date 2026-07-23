@@ -1,0 +1,420 @@
+
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Scratch to win</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width"><style>:root{
+  --background:#251447;
+  --foreground:#fbf8f1;
+  --purple-deep:#1b0d3d;
+  --purple-mid:#3a1f6e;
+  --purple-soft:#4e2c8a;
+  --gold:#e8b53a;
+  --gold-bright:#f3c84a;
+  --green-win:#28b463;
+  --green-bright:#3ad07a;
+  --die-face:#f7f1e0;
+  --die-pip:#1f1640;
+  --card:#ffffff;
+  --card-fg:#1f1640;
+  --muted:#b8a8d6;
+}
+*{box-sizing:border-box;border:0;margin:0;padding:0}
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color:var(--foreground);
+  min-height:100vh;
+  background:radial-gradient(ellipse at top,#4a2b87 0%,var(--background) 60%);
+}
+.page{min-height:100vh;display:flex;justify-content:center;padding:24px 16px}
+.container{width:100%;max-width:390px;display:flex;flex-direction:column;align-items:center;gap:24px}
+
+.badge{
+  padding:6px 16px;border-radius:999px;
+  font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:#231248;
+  background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+  box-shadow:0 4px 14px rgba(232,181,58,.35);
+}
+
+.headline{
+  text-align:center;font-size:24px;font-weight:800;line-height:1.2;padding:0 8px;
+  text-shadow:0 2px 8px rgba(0,0,0,.3);
+}
+.headline.won{text-shadow:0 0 18px rgba(232,181,58,.7)}
+.gold-text{color:var(--gold-bright)}
+.shake{animation:win-shake .6s ease-in-out}
+
+.picker{width:100%;display:flex;flex-direction:column;align-items:center;gap:12px}
+.muted{font-size:14px;color:var(--muted)}
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;width:100%}
+.tile{
+  aspect-ratio:1/1;border-radius:12px;font-size:20px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  background:linear-gradient(180deg,var(--purple-soft),var(--purple-mid));
+  color:#fbf8f1;border:2px solid rgba(255,255,255,.08);
+  box-shadow:0 4px 12px rgba(0,0,0,.25);
+  transition:transform .1s;
+}
+.tile:active{transform:scale(.95)}
+.tile.selected{
+  background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+  color:#231248;border-color:var(--gold-bright);
+  box-shadow:0 0 22px rgba(232,181,58,.7),inset 0 1px 0 rgba(255,255,255,.5);
+}
+.tile.dimmed{opacity:.55;cursor:not-allowed}
+
+.dice-area{
+  width:100%;display:flex;justify-content:center;align-items:center;
+  gap:24px;padding:16px 0;min-height:120px;overflow:visible;
+}
+.die-wrap{width:80px;height:80px;perspective:800px}
+.die{
+  width:80px;height:80px;position:relative;transform-style:preserve-3d;
+  transform:rotateX(-20deg) rotateY(20deg);
+  transition:transform 1.6s cubic-bezier(.18,.9,.25,1);
+}
+.face{
+  position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);
+  gap:4px;padding:8px;border-radius:12px;
+  background:linear-gradient(145deg,var(--die-face),#e6dcc0);
+  border:2px solid #e9c14a;
+  box-shadow:inset 0 0 12px rgba(31,22,64,.15);
+  backface-visibility:hidden;
+}
+.pip-cell{display:flex;align-items:center;justify-content:center}
+.pip{
+  width:12px;height:12px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,#473077,var(--die-pip));
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.4);
+}
+.tumble1{animation:tumble .8s ease-in-out}
+.tumble2{animation:tumble 1s ease-in-out}
+
+.reward{text-align:center;min-height:56px}
+.reward.hidden{visibility:hidden}
+.reward-label{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
+.reward-amount{font-size:36px;font-weight:900;color:var(--gold-bright);text-shadow:0 0 20px rgba(232,181,58,.6)}
+
+.cta-wrap{width:100%;padding:6px 0;overflow:visible}
+.cta{
+  width:100%;padding:20px;border-radius:16px;
+  font-size:18px;font-weight:800;letter-spacing:.04em;cursor:pointer;
+  color:#231248;
+  background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+  box-shadow:0 8px 24px rgba(232,181,58,.4),inset 0 1px 0 rgba(255,255,255,.5);
+}
+.cta-gold{animation:pulse-gold 1.6s ease-in-out infinite}
+.cta-green{
+  color:#f3fff7;
+  background:linear-gradient(180deg,var(--green-bright),var(--green-win));
+  box-shadow:0 0 50px rgba(58,208,122,.7),0 8px 28px rgba(40,180,99,.5),inset 0 1px 0 rgba(255,255,255,.35);
+  animation:pulse-green 1.2s ease-in-out infinite;
+}
+.cta-disabled{background:#3a2a5e;color:#8e7eb0;opacity:.7;cursor:not-allowed}
+.cta-rolling{opacity:.7;cursor:wait;animation:none}
+
+.trust{font-size:12px;text-align:center;color:var(--muted)}
+
+.testimonials{width:100%;display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.testimonial{
+  border-radius:16px;padding:12px;background:var(--card);color:var(--card-fg);
+  box-shadow:0 6px 20px rgba(0,0,0,.25);
+}
+.t-row{display:flex;gap:12px}
+.avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.bubble{flex:1;min-width:0}
+.bubble-inner{border-radius:16px;padding:8px 12px;background:#f1eef7}
+.bubble-name{font-weight:700;font-size:14px}
+.bubble-text{font-size:14px;margin-top:2px}
+.bubble-meta{display:flex;align-items:center;gap:12px;font-size:12px;margin-top:4px;padding:0 8px;color:#5d4f80}
+.bubble-meta .like,.bubble-meta .reply{font-weight:600}
+.likes{margin-left:auto;display:inline-flex;align-items:center;gap:4px}
+.fb{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:#1877F2;color:#fff;font-size:10px}
+
+@keyframes pulse-gold{
+  0%,100%{box-shadow:0 0 0 0 rgba(232,181,58,.7),0 8px 24px rgba(232,181,58,.35);transform:scale(1)}
+  50%{box-shadow:0 0 0 14px rgba(232,181,58,0),0 8px 32px rgba(232,181,58,.55);transform:scale(1.02)}
+}
+@keyframes pulse-green{
+  0%,100%{box-shadow:0 0 0 0 rgba(58,208,122,.75),0 0 40px rgba(58,208,122,.6),0 8px 24px rgba(40,180,99,.5);transform:scale(1)}
+  50%{box-shadow:0 0 0 18px rgba(58,208,122,0),0 0 60px rgba(58,208,122,.9),0 12px 36px rgba(40,180,99,.7);transform:scale(1.03)}
+}
+@keyframes win-shake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-6px) rotate(-1deg)}
+  40%{transform:translateX(6px) rotate(1deg)}
+  60%{transform:translateX(-4px)}
+  80%{transform:translateX(4px)}
+}
+@keyframes tumble{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-30px)}
+  100%{transform:translateY(0)}
+}
+
+</style></head><body>
+<main class="page">
+  <div class="container">
+    <div class="badge">Daily Naija Reward</div>
+
+    <h1 id="headline" class="headline">
+      Roll your lucky number and win up to <span class="gold-text">₦100,000</span>
+    </h1>
+
+    <section class="picker">
+      <p class="muted">Choose your lucky number</p>
+      <div id="tiles" class="tiles"></div>
+    </section>
+
+    <div class="dice-area">
+      <div id="dieWrap1" class="die-wrap"><div class="die" id="die1"></div></div>
+      <div id="dieWrap2" class="die-wrap"><div class="die" id="die2"></div></div>
+    </div>
+
+    <div id="reward" class="reward hidden">
+      <div class="reward-label">Your reward</div>
+      <div id="rewardAmount" class="reward-amount">₦0</div>
+    </div>
+
+    <div class="cta-wrap">
+      <button id="cta" class="cta cta-disabled" disabled>PICK A NUMBER FIRST</button>
+    </div>
+
+    <p class="trust">Thousands of Nigerians played today</p>
+
+    <section class="testimonials" id="testimonials"></section>
+  </div>
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>(() => {
+  const WIN_AMOUNT = 100000;
+  const OFFER_URL = "#REPLACE_ME";
+
+    // ===== EDIT YOUR TESTIMONIALS HERE =====
+  // avatar can be a URL (https://...), a local path (./avatars/jane.jpg), or leave "" to use a default.
+  const TESTIMONIALS = [
+    {
+      name: "Chinwe O.",
+      text: "I picked 5 and it actually landed. got my ₦100k same day. Still in shock!",
+      likes: "12",
+      time: "2h",
+      avatar: "https://lpgallery.s3.eu-central-1.amazonaws.com/content_restriction/unable_to_analyze_due_to_content_restrictions_67c9788f2a358.png",
+    },
+    {
+      name: "Tunde A.",
+      text: "Wasn't expecting much but the dice rolled my number. Cashed out without stress.",
+      likes: "94",
+      time: "4h",
+      avatar: "https://lpgallery.s3.eu-central-1.amazonaws.com/Adult_Content/adult_67c97892021b3.png",
+    },
+    {
+      name: "Amaka E.",
+      text: "My lucky number is 3 and that's exactly what came up. Thank you 🙏",
+      likes: "67",
+      time: "1d",
+      avatar: "https://lpgallery.s3.eu-central-1.amazonaws.com/portrait/unable_to_identify_person_67c978954a0d4.png",
+    },
+  ];
+  // =========================================
+
+
+  const formatNaira = (n) => "₦" + n.toLocaleString("en-NG");
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+  // Face orientation that brings a given face to front
+  // front=1, back=6, right=4, left=3, top=2, bottom=5
+  const FACE_ROTATION = {
+    1: { x: 0, y: 0 },
+    2: { x: -90, y: 0 },
+    3: { x: 0, y: 90 },
+    4: { x: 0, y: -90 },
+    5: { x: 90, y: 0 },
+    6: { x: 0, y: 180 },
+  };
+
+  const PIPS = {
+    1: [[2, 2]],
+    2: [[1, 1], [3, 3]],
+    3: [[1, 1], [2, 2], [3, 3]],
+    4: [[1, 1], [3, 1], [1, 3], [3, 3]],
+    5: [[1, 1], [3, 1], [2, 2], [1, 3], [3, 3]],
+    6: [[1, 1], [3, 1], [1, 2], [3, 2], [1, 3], [3, 3]],
+  };
+
+  const SIZE = 80;
+  const HALF = SIZE / 2;
+
+  function buildFace(value) {
+    const face = document.createElement("div");
+    face.className = "face";
+    for (let i = 0; i < 9; i++) {
+      const col = (i % 3) + 1;
+      const row = Math.floor(i / 3) + 1;
+      const cell = document.createElement("div");
+      cell.className = "pip-cell";
+      const on = PIPS[value].some(([c, r]) => c === col && r === row);
+      if (on) {
+        const p = document.createElement("div");
+        p.className = "pip";
+        cell.appendChild(p);
+      }
+      face.appendChild(cell);
+    }
+    return face;
+  }
+
+  function buildDie(el) {
+    const faces = [
+      { v: 1, t: `translateZ(${HALF}px)` },
+      { v: 6, t: `rotateY(180deg) translateZ(${HALF}px)` },
+      { v: 4, t: `rotateY(90deg) translateZ(${HALF}px)` },
+      { v: 3, t: `rotateY(-90deg) translateZ(${HALF}px)` },
+      { v: 2, t: `rotateX(90deg) translateZ(${HALF}px)` },
+      { v: 5, t: `rotateX(-90deg) translateZ(${HALF}px)` },
+    ];
+    faces.forEach((f) => {
+      const face = buildFace(f.v);
+      face.style.transform = f.t;
+      el.appendChild(face);
+    });
+  }
+
+  const die1 = document.getElementById("die1");
+  const die2 = document.getElementById("die2");
+  buildDie(die1);
+  buildDie(die2);
+
+  function setDieRotation(el, rx, ry) {
+    el.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+  }
+  setDieRotation(die1, -20, 20);
+  setDieRotation(die2, 20, -15);
+
+  // Tiles
+  let lucky = null;
+  let phase = "pick"; // pick | rolling | won
+  const tilesEl = document.getElementById("tiles");
+  const tileEls = {};
+  for (let n = 1; n <= 6; n++) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "tile";
+    b.textContent = String(n);
+    b.addEventListener("click", () => {
+      if (phase !== "pick") return;
+      lucky = n;
+      updateTiles();
+      updateCTA();
+    });
+    tilesEl.appendChild(b);
+    tileEls[n] = b;
+  }
+
+  function updateTiles() {
+    for (let n = 1; n <= 6; n++) {
+      const el = tileEls[n];
+      el.classList.toggle("selected", lucky === n);
+      el.classList.toggle("dimmed", phase !== "pick" && lucky !== n);
+    }
+  }
+
+  // CTA
+  const cta = document.getElementById("cta");
+  function updateCTA() {
+    cta.className = "cta";
+    cta.disabled = false;
+    if (phase === "pick") {
+      if (lucky == null) {
+        cta.classList.add("cta-disabled");
+        cta.disabled = true;
+        cta.textContent = "PICK A NUMBER FIRST";
+      } else {
+        cta.classList.add("cta-gold");
+        cta.textContent = "ROLL THE DICE";
+      }
+    } else if (phase === "rolling") {
+      cta.classList.add("cta-rolling");
+      cta.disabled = true;
+      cta.textContent = "ROLLING…";
+    } else if (phase === "won") {
+      cta.classList.add("cta-green");
+      cta.textContent = `CLAIM MY ${formatNaira(WIN_AMOUNT)} →`;
+    }
+  }
+
+  cta.addEventListener("click", () => {
+    if (phase === "pick" && lucky != null) roll();
+    else if (phase === "won") window.location.href = "https://jump.zmobistein.com/?jp=69e8c424f1e4e&id=9338_NG_1_xxxx_16506_976_1t&nxl=6a0e23f3e02e3_1119161_20960&mjump=27x16506x946e6e05ad7&drua=zzzTW96aWxsYS81LjAgKExpbnV4OyBBbmRyb2lkIDEwOyBLKSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTQ4LjAuMC4wIE1vYmlsZSBTYWZhcmkvNTM3LjM2IE9QUi85OS4wLjAuMA==&drip=105.112.124.219&fbclid=Iwb21leATOF9xjbGNrBM4XvGV4dG4DYWVtATAAYWRpZAAABlaVuZLmc3J0YwZhcHBfaWQMMzUwNjg1NTMxNzI4AAEe87CfsjdREWuvkHTekKgvdRGz6-eArpg31OxjeSDljalBxilZCJzWqjJlaSo_aem_RMfHCYGlIz5LFuR9jt3CMg&utm_source=fb&fbclid=Iwb21leATOF9xjbGNrBM4XvGV4dG4DYWVtATAAYWRpZAAABlaVuZLmc3J0YwZhcHBfaWQMMzUwNjg1NTMxNzI4AAEe87CfsjdREWuvkHTekKgvdRGz6-eArpg31OxjeSDljalBxilZCJzWqjJlaSo_aem_RMfHCYGlIz5LFuR9jt3CMg&utm_source=fb";
+  });
+
+  const headline = document.getElementById("headline");
+  const reward = document.getElementById("reward");
+  const rewardAmount = document.getElementById("rewardAmount");
+  const wrap1 = document.getElementById("dieWrap1");
+  const wrap2 = document.getElementById("dieWrap2");
+
+  async function roll() {
+    phase = "rolling";
+    updateTiles();
+    updateCTA();
+
+    reward.classList.remove("hidden");
+    rewardAmount.textContent = formatNaira(0);
+
+    wrap1.classList.add("tumble1");
+    wrap2.classList.add("tumble2");
+
+    const target = FACE_ROTATION[lucky];
+    setDieRotation(die1, target.x + 360 * 3, target.y + 360 * 3);
+    setDieRotation(die2, target.x + 360 * 4, target.y - 360 * 3);
+
+    await sleep(800);
+    wrap1.classList.remove("tumble1");
+    await sleep(300);
+    wrap2.classList.remove("tumble2");
+    await sleep(700);
+
+    phase = "won";
+    updateCTA();
+
+    headline.classList.add("won", "shake");
+    headline.innerHTML = `There's your lucky number — <span class="gold-text">you won ${formatNaira(WIN_AMOUNT)}!</span>`;
+    setTimeout(() => headline.classList.remove("shake"), 700);
+
+    const steps = 30;
+    const dur = 1200;
+    for (let i = 1; i <= steps; i++) {
+      await sleep(dur / steps);
+      rewardAmount.textContent = formatNaira(Math.round((WIN_AMOUNT * i) / steps));
+    }
+  }
+
+  // Testimonials
+  const testimonials = document.getElementById("testimonials");
+  TESTIMONIALS.forEach((t, idx) => {
+    const art = document.createElement("article");
+    art.className = "testimonial";
+     const avatar = t.avatar && t.avatar.trim()
+      ? t.avatar
+      : `https://i.pravatar.cc/80?img=${[14, 32, 47][idx % 3]}`;
+    art.innerHTML = `
+      <div class="t-row">
+ <img class="avatar" src="${avatar}" alt="" />        <div class="bubble">
+          <div class="bubble-inner">
+             <div class="bubble-name"></div>
+            <div class="bubble-text"></div>
+          </div>
+          <div class="bubble-meta">
+            <span class="like">Like</span>
+            <span class="reply">Reply</span>
+             <span class="time"></span>
+            <span class="likes"><span class="fb">👍</span><span class="likes-count"></span></span>
+          </div>
+        </div>
+      </div>`;
+        art.querySelector(".bubble-name").textContent = t.name;
+    art.querySelector(".bubble-text").textContent = t.text;
+    art.querySelector(".time").textContent = t.time || "2h";
+    art.querySelector(".likes-count").textContent = t.likes || "";
+    testimonials.appendChild(art);
+  });
+})();
+
+</script></body></html>
