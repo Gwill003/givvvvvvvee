@@ -145,7 +145,7 @@ function fireConfetti() {
 function showResult(seg, isWin) {
   const el = document.getElementById('result');
   el.classList.remove('hidden');
-  el.innerHTML = `<div class="small">${isWin ? 'Final Prize' : 'Spin ' + spinCount + ' result'}</div>
+  el.innerHTML = `<div class="small">${isWin ? 'Final Prize' : 'Résultat du spin ' + spinCount + ' '}</div>
     <div class="big">${seg.label}${seg.sub ? ' — <span style="opacity:.8">' + seg.sub + '</span>' : ''}</div>`;
 }
 
