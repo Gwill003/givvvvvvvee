@@ -73,14 +73,14 @@ function answerQuestion(qNum, answer) {
 //  SPIN WHEEL
 // ═══════════════════════════════════════════════════════════════
 const SEGMENTS = [
-  { label: "Free Data",         sub: "100GB ",      color: "green",  image: "https://ad.grapofferprice.forum/assets/100gb.png", isPrize: true },
-  { label: "₦150,000",         sub: "Instant Win",  color: "white",  image: "https://ad.grapofferprice.forum/assets/prize-cash-200k.png", isPrize: true },
-  { label: "₦25,000",          sub: "Earn cash now",      color: "green",  image: "https://ad.grapofferprice.forum/assets/prize-cash-50k.png",  isPrize: true },
-  { label: "₦10,000",          sub: "Airtime",  color: "white",  image: "https://ad.grapofferprice.forum/assets/prize-airtime.png",   isPrize: true },
-  { label: "₦250,000",       sub: "Cash Out now",   color: "green",  image: "https://ad.grapofferprice.forum/assets/prize-data.png",      isPrize: true },
-  { label: "Free Data",         sub: "50GB ",  color: "white", image: "https://ad.grapofferprice.forum/assets/50gb.png",    isPrize: true },
-  { label: "bonus spin",       color: "green",  icon: "➜", isPrize: false },
-  { label: "Spin Again",        color: "white",  icon: "↻", isPrize: false },
+  { label: "Données gratuites",         sub: "100GB ",      color: "green",  image: "https://ad.grapofferprice.forum/assets/100gb.png", isPrize: true },
+  { label: "250.000 CDF",         sub: "Instant Win",  color: "white",  image: "https://ad.grapofferprice.forum/assets/prize-cash-200k.png", isPrize: true },
+  { label: "500.000 CDF",          sub: "Earn cash now",      color: "green",  image: "https://ad.grapofferprice.forum/assets/prize-cash-50k.png",  isPrize: true },
+  { label: "10.000 CDF",          sub: "Airtime",  color: "white",  image: "https://ad.grapofferprice.forum/assets/prize-airtime.png",   isPrize: true },
+  { label: "750.000 CDF",       sub: "Cash Out now",   color: "green",  image: "https://ad.grapofferprice.forum/assets/prize-data.png",      isPrize: true },
+  { label: "Données gratuites",         sub: "50GB ",  color: "white", image: "https://ad.grapofferprice.forum/assets/50gb.png",    isPrize: true },
+  { label: "Bonus de tours",       color: "green",  icon: "➜", isPrize: false },
+  { label: "Relancer",        color: "white",  icon: "↻", isPrize: false },
 ];
 const SEG_COUNT = SEGMENTS.length;
 const SEG_ANGLE = 360 / SEG_COUNT;
