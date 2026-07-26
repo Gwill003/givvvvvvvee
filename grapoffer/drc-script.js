@@ -181,12 +181,12 @@ function restoreGame() {
     const wonIdx = parseInt(load(KEY_WON_IDX) || '0');
     const seg = SEGMENTS[wonIdx];
     spinBtn.disabled    = true;
-    spinBtn.textContent = '🏆 You Won!';
+    spinBtn.textContent = '🏆 Vous avez gagné !';
     document.getElementById('resetBtn').classList.remove('hidden');
     showResult(seg, true);
     showPrizeModal(seg);
   } else if (spinCount > 0) {
-    spinBtn.textContent = `Spin and Win (${spinCount}/3)`;
+    spinBtn.textContent = `Tournez et gagnez (${spinCount}/3)`;
   }
 }
 
@@ -217,7 +217,7 @@ function spin() {
   wheel.classList.add('spinning');
   wheel.style.transform  = `rotate(${rotation}deg)`;
   spinBtn.disabled    = true;
-  spinBtn.textContent = 'Spinning...';
+  spinBtn.textContent = 'Le filage...';
 
   setTimeout(() => {
     spinning  = false;
