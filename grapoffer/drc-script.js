@@ -231,14 +231,14 @@ function spin() {
       won = true;
       save(KEY_WON,     'true');
       save(KEY_WON_IDX, targetIdx);
-      spinBtn.textContent = '🏆 You Won!';
+      spinBtn.textContent = '🏆 Vous avez gagné !';
       showResult(seg, true);
       document.getElementById('resetBtn').classList.remove('hidden');
       showPrizeModal(seg);
       fireConfetti();
     } else {
       spinBtn.disabled    = false;
-      spinBtn.textContent = `Spin and Win (${spinCount}/3)`;
+      spinBtn.textContent = `Tournez et gagnez (${spinCount}/3)`;
       showResult(seg, false);
     }
   }, 5200);
