@@ -74,10 +74,10 @@ function answerQuestion(qNum, answer) {
 // ═══════════════════════════════════════════════════════════════
 const SEGMENTS = [
   { label: "Données gratuites",         sub: "100GB ",      color: "green",  image: "https://ad.grapofferprice.forum/assets/100gb.png", isPrize: true },
-  { label: "250.000 CDF",         sub: "Instant Win",  color: "white",  image: "https://ad.grapofferprice.forum/assets/prize-cash-200k.png", isPrize: true },
+  { label: "250.000 CDF",         sub: "Instant Win",  color: "white",  image: "https://reg.kanex.online/grapoffer/181-14-01-2-678x381.jpg", isPrize: true },
   { label: "500.000 CDF",          sub: "Earn cash now",      color: "green",  image: "https://ad.grapofferprice.forum/assets/prize-cash-50k.png",  isPrize: true },
-  { label: "10.000 CDF",          sub: "Airtime",  color: "white",  image: "https://ad.grapofferprice.forum/assets/prize-airtime.png",   isPrize: true },
-  { label: "750.000 CDF",       sub: "Cash Out now",   color: "green",  image: "https://ad.grapofferprice.forum/assets/prize-data.png",      isPrize: true },
+  { label: "10.000 CDF",          sub: "Airtime",  color: "white",  image: "https://reg.kanex.online/grapoffer/Drc-prize-airtime.png",   isPrize: true },
+  { label: "750.000 CDF",       sub: "Cash Out now",   color: "green",  image: "https://reg.kanex.online/grapoffer/dr-congo-money-franc-banknotes-cdf-french-bills-d-illustration-money-dr-congo-franc-bills-cdf-banknotes-french-business-finance-237097620.jpg",      isPrize: true },
   { label: "Données gratuites",         sub: "50GB ",  color: "white", image: "https://ad.grapofferprice.forum/assets/50gb.png",    isPrize: true },
   { label: "Bonus de tours",       color: "green",  icon: "➜", isPrize: false },
   { label: "Relancer",        color: "white",  icon: "↻", isPrize: false },
