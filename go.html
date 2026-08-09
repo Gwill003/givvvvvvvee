@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Carrier Redirect</title>
+  <script>
+  fetch("https://ipinfo.io/json?token=908bedac2d641f") // replace with your token
+  .then(res => res.json())
+  .then(data => {
+      let carrier = (data.org || "").toLowerCase();
+
+      if(carrier.includes("mtn")) {
+          window.location.replace("https://www.blurparkskipper.courses/click?offer_id=37572&pub_id=247806&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE&pub_sub_id=PASS_PLACEMENT_HERE");
+      } else if(carrier.includes("airtel")) {
+          window.location.replace("https://jikgykm.com/cl/55a25abeba103c73");
+      } else if(carrier.includes("glo")) {
+          window.location.replace("https://jikgykm.com/cl/55a25abeba103c73");
+      } else {
+          // Fallback: show a manual selection page
+          window.location.replace("https://omg10.com/4/9795310");
+      }
+  })
+  .catch(err => {
+      window.location.replace("https://omg10.com/4/9795310"); // API failed
+  });
+  </script>
+</head>
+<body>
+</body>
+</html>
